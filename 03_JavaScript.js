@@ -252,7 +252,7 @@ SECTION 16 — JS RUNTIME, COMPILATION & ENGINE INTERNALS
  * Primitive types:
  * - Stored by value
  * - Immutable
- *
+ * 
  * Reference types:
  * - Stored as references to memory
  * - Mutable
