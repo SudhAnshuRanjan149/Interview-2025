@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  # ========== Hello World Node App ==========
+  hello-world-node:
+    build:
+      context: ./hello_world_node
+      dockerfile: Dockerfile
+    container_name: hello-world-node
+    ports:
+      - "3001:3000"  # Map container port 3000 to host port 3001
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # ========== Secure Node API ==========
+  secure-node-api:
+    build:
+      context: ./secure-node-api
+      dockerfile: Dockerfile
+    container_name: secure-node-api
+    ports:
+      - "3002:3000"  # Map container port 3000 to host port 3002
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    env_file:
+      - ./secure-node-api/.env
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # ========== Secure React Frontend App ==========
+  secure-react-app:
+    build:
+      context: ./secure-react-app
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_URL=http://localhost:3002
+        - REACT_APP_ENV=production
+    container_name: secure-react-app
+    ports:
+      - "8080:8080"  # Map Nginx port 8080 to host port 8080
+    networks:
+      - app-network
+    depends_on:
+      - hello-world-node
+      - secure-node-api
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+# ========== Network Configuration ==========
+networks:
+  app-network:
+    driver: bridge
+    name: poc-network
