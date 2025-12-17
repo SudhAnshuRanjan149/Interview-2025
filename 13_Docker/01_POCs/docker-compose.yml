@@ -1,84 +1,187 @@
+# ============================================================
+# Docker Compose Configuration for Multi-Service Application
+# ============================================================
+# This file orchestrates 4 services: 2 Node.js apps and 2 React apps
+# Version 3.8 provides features like health checks and resource limits
 version: '3.8'
 
 services:
-  # ========== Hello World Node App ==========
+  # ============================================================
+  # Service 1: Hello World Node App (Basic Node.js Express)
+  # ============================================================
+  # A simple Express.js server for learning and demos
   hello-world-node:
+    # Build configuration
     build:
-      context: ./hello_world_node
-      dockerfile: Dockerfile
-    container_name: hello-world-node
+      context: ./hello_world_node      # Path to the application directory
+      dockerfile: Dockerfile            # Name of the Dockerfile to use
+    
+    # Container configuration
+    container_name: hello-world-node    # Custom name for easy identification
+    
+    # Port mapping: <host_port>:<container_port>
     ports:
-      - "3001:3000"  # Map container port 3000 to host port 3001
+      - "3001:3000"                     # Access via http://localhost:3001
+    
+    # Environment variables passed to the container
     environment:
-      - PORT=3000
-      - NODE_ENV=production
+      - PORT=3000                       # Port the Node app listens on inside container
+      - NODE_ENV=production             # Run in production mode for optimizations
+    
+    # Network configuration
     networks:
-      - app-network
+      - app-network                     # Join the custom bridge network for inter-service communication
+    
+    # Restart policy: restart container unless explicitly stopped
     restart: unless-stopped
+    
+    # Health check configuration
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]  # Command to check if service is healthy
+      interval: 30s                     # Check every 30 seconds
+      timeout: 5s                       # Wait max 5 seconds for response
+      retries: 3                        # Mark unhealthy after 3 failed attempts
+      start_period: 10s                 # Grace period before starting health checks
 
-  # ========== Secure Node API ==========
+  # ============================================================
+  # Service 2: Secure Node API (Production-Ready Express API)
+  # ============================================================
+  # Enterprise-grade Node.js API with security middleware
   secure-node-api:
+    # Build configuration
     build:
-      context: ./secure-node-api
-      dockerfile: Dockerfile
-    container_name: secure-node-api
+      context: ./secure-node-api        # Path to the application directory
+      dockerfile: Dockerfile            # Multi-stage Dockerfile with security hardening
+    
+    # Container configuration
+    container_name: secure-node-api     # Custom name for easy identification
+    
+    # Port mapping: <host_port>:<container_port>
     ports:
-      - "3002:3000"  # Map container port 3000 to host port 3002
+      - "3002:3000"                     # Access via http://localhost:3002
+    
+    # Environment variables passed to the container
     environment:
-      - PORT=3000
-      - NODE_ENV=production
+      - PORT=3000                       # Port the API listens on inside container
+      - NODE_ENV=production             # Production mode for security and performance
+    
+    # Load additional environment variables from .env file
     env_file:
-      - ./secure-node-api/.env
+      - ./secure-node-api/.env          # Contains sensitive config (not committed to git)
+    
+    # Network configuration
     networks:
-      - app-network
-    restart: unless-stopped
+      - app-network                     # Join the custom bridge network
+    
+    # Restart policy
+    restart: unless-stopped             # Auto-restart on failure
+    
+    # Health check configuration
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]  # Check dedicated health endpoint
+      interval: 30s                     # Check every 30 seconds
+      timeout: 5s                       # Wait max 5 seconds
+      retries: 3                        # Mark unhealthy after 3 failures
+      start_period: 10s                 # Grace period for app startup
 
-  # ========== Secure React Frontend App ==========
+  # ============================================================
+  # Service 3: Secure React Frontend (Production-Hardened)
+  # ============================================================
+  # Enterprise-grade React app with comprehensive security
   secure-react-app:
+    # Build configuration
     build:
-      context: ./secure-react-app
-      dockerfile: Dockerfile
+      context: ./secure-react-app       # Path to the React application
+      dockerfile: Dockerfile            # Multi-stage build with non-root user and security
+      
+      # Build arguments: passed during docker build (not at runtime)
       args:
-        - REACT_APP_API_URL=http://localhost:3002
-        - REACT_APP_ENV=production
-    container_name: secure-react-app
+        - REACT_APP_API_URL=http://localhost:3002  # Backend API URL embedded in build
+        - REACT_APP_ENV=production                 # Environment identifier
+    
+    # Container configuration
+    container_name: secure-react-app    # Custom name for easy identification
+    
+    # Port mapping: <host_port>:<container_port>
     ports:
-      - "8080:8080"  # Map Nginx port 8080 to host port 8080
+      - "8080:8080"                     # Nginx listens on 8080 (non-privileged port)
+    
+    # Network configuration
     networks:
-      - app-network
+      - app-network                     # Join the custom bridge network
+    
+    # Service dependencies: wait for these services to start first
     depends_on:
-      - hello-world-node
+      - hello-world-node                # Wait for Node apps to be available
       - secure-node-api
-    restart: unless-stopped
+    
+    # Restart policy
+    restart: unless-stopped             # Auto-restart unless manually stopped
+    
+    # Resource limits to prevent container from consuming too much
     deploy:
       resources:
         limits:
-          cpus: '0.5'
-          memory: 256M
+          cpus: '0.5'                   # Maximum 0.5 CPU cores
+          memory: 256M                  # Maximum 256MB RAM
         reservations:
-          cpus: '0.25'
-          memory: 128M
+          cpus: '0.25'                  # Guaranteed minimum 0.25 CPU cores
+          memory: 128M                  # Guaranteed minimum 128MB RAM
+    
+    # Health check configuration
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/health"]
-      interval: 30s
-      timeout: 3s
-      retries: 3
-      start_period: 10s
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/health"]  # Check custom health endpoint
+      interval: 30s                     # Check every 30 seconds
+      timeout: 3s                       # Wait max 3 seconds
+      retries: 3                        # Mark unhealthy after 3 failures
+      start_period: 10s                 # Grace period for Nginx startup
 
-# ========== Network Configuration ==========
+  # ============================================================
+  # Service 4: Basic React Frontend (Standard Production Build)
+  # ============================================================
+  # Standard React app with basic security and optimization
+  my-react-app:
+    # Build configuration
+    build:
+      context: ./my-react-app           # Path to the React application
+      dockerfile: Dockerfile            # Multi-stage build with Nginx
+      
+      # Build arguments: environment variables for build time
+      args:
+        - REACT_APP_API_URL=http://localhost:3001  # Backend API URL
+        - REACT_APP_ENV=production                 # Environment identifier
+    
+    # Container configuration
+    container_name: my-react-app        # Custom name for easy identification
+    
+    # Port mapping: <host_port>:<container_port>
+    ports:
+      - "3000:80"                       # Nginx listens on port 80, exposed on host 3000
+    
+    # Network configuration
+    networks:
+      - app-network                     # Join the custom bridge network
+    
+    # Service dependencies
+    depends_on:
+      - hello-world-node                # Wait for hello-world-node to start
+    
+    # Restart policy
+    restart: unless-stopped             # Auto-restart on failure
+    
+    # Health check configuration
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80/"]  # Check root endpoint
+      interval: 30s                     # Check every 30 seconds
+      timeout: 3s                       # Wait max 3 seconds
+      retries: 3                        # Mark unhealthy after 3 failures
+      start_period: 10s                 # Grace period for Nginx startup
+
+# ============================================================
+# Network Configuration
+# ============================================================
+# Custom bridge network for inter-service communication
 networks:
   app-network:
-    driver: bridge
-    name: poc-network
+    driver: bridge                      # Use bridge driver for isolated network
+    name: poc-network                   # Custom network name for identification

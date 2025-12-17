@@ -1,10 +1,11 @@
 # Docker Compose Multi-Service Deployment
 
-This repository contains a Docker Compose configuration to deploy three applications as a unified stack:
+This repository contains a Docker Compose configuration to deploy **four applications** as a unified stack:
 
 1. **hello-world-node** - A simple Node.js Express app
 2. **secure-node-api** - A secure Node.js API with helmet, CORS, rate limiting, and logging
-3. **secure-react-app** - A production-hardened React frontend with comprehensive security measures
+3. **my-react-app** - A basic React frontend served via Nginx
+4. **secure-react-app** - A production-hardened React frontend with comprehensive security measures
 
 ---
 
@@ -69,6 +70,13 @@ Before you begin, ensure you have the following installed on your system:
 │   ├── src/
 │   │   └── index.js
 │   └── .dockerignore
+├── my-react-app/
+│   ├── Dockerfile              # Basic production build
+│   ├── package.json
+│   ├── nginx.conf              # Standard Nginx config
+│   ├── public/
+│   ├── src/
+│   └── .dockerignore
 └── secure-react-app/
     ├── Dockerfile              # Multi-stage, non-root, security hardened
     ├── package.json
@@ -124,6 +132,20 @@ Before you begin, ensure you have the following installed on your system:
   - `http://localhost:8080` - React application
   - `http://localhost:8080/health` - Health check endpoint
 
+### 4. Basic React Frontend (`my-react-app`)
+
+- **Description**: Standard React app with basic production optimization
+- **Internal Port**: 80
+- **Host Port**: 3000
+- **URL**: `http://localhost:3000`
+- **Features**:
+  - Production-optimized build
+  - Multi-stage Docker build
+  - Basic security headers (X-Frame-Options, X-Content-Type-Options)
+  - Gzip compression
+  - Static asset caching
+  - SPA routing support
+
 ### Network
 
 All services are connected via a custom bridge network called `poc-network`, allowing inter-service communication by service name.
@@ -177,8 +199,9 @@ Expected output:
 ```
 NAME                 IMAGE                        STATUS
 hello-world-node     01_pocs-hello-world-node     Up (healthy)
-secure-react-app     01_pocs-secure-react-app     Up (healthy)
 secure-node-api      01_pocs-secure-node-api      Up (healthy)
+my-react-app         01_pocs-my-react-app         Up (healthy)
+secure-react-app     01_pocs-secure-react-app     Up (healthy)
 ```
 
 ---
@@ -219,7 +242,7 @@ docker compose up -d
 
 ```bash
 docker compose up -d hello-world-node
-docker compose up -d secure-node-api secure-react-app
+docker compose up -d secure-node-api secure-react-app my-react-app
 ```
 
 ### View Logs
@@ -234,6 +257,7 @@ docker compose logs -f
 docker compose logs -f hello-world-node
 docker compose logs -f secure-node-api
 docker compose logs -f secure-react-app
+docker compose logs -f my-react-app
 ```
 
 **Last 100 lines:**
@@ -253,6 +277,7 @@ Or rebuild a specific service:
 
 ```bash
 docker compose up --build -d secure-react-app
+docker compose up --build -d my-react-app
 ```
 
 ### Execute Commands Inside Containers
@@ -262,6 +287,7 @@ docker compose up --build -d secure-react-app
 docker compose exec hello-world-node sh
 docker compose exec secure-node-api sh
 docker compose exec secure-react-app sh
+docker compose exec my-react-app sh
 
 # Run a one-off command
 docker compose exec secure-node-api node --version
@@ -278,6 +304,7 @@ Once the services are running, access them via:
 | Hello World Node         | http://localhost:3001             | Simple Express app                    |
 | Secure Node API          | http://localhost:3002/health      | API health check endpoint             |
 | Secure Node API          | http://localhost:3002/api/hello   | Sample API route                      |
+| Basic React App          | http://localhost:3000             | Standard React frontend               |
 | Secure React Frontend    | http://localhost:8080             | Production-hardened React app         |
 | React App Health Check   | http://localhost:8080/health      | Frontend health endpoint              |
 
@@ -291,6 +318,17 @@ curl http://localhost:3001
 curl http://localhost:3002/health
 
 # Test Secure API Hello endpoint
+curl http://localhost:3002/api/hello
+
+# Test Basic React App
+curl http://localhost:3000
+
+# Test Secure React App
+curl http://localhost:8080
+
+# Test Secure React App Health
+curl http://localhost:8080/health
+```
 curl http://localhost:3002/api/hello
 
 # Test React App
@@ -566,6 +604,39 @@ Example GitHub Actions workflow snippet:
 
 ---
 
+## 📊 Service Comparison
+
+### React Apps Comparison
+
+| Feature                    | my-react-app (Port 3000)        | secure-react-app (Port 8080)         |
+|----------------------------|---------------------------------|--------------------------------------|
+| **Security Level**         | Basic                           | Enterprise-grade                     |
+| **User**                   | root                            | nginxuser (non-root)                 |
+| **Port**                   | 80 (privileged)                 | 8080 (non-privileged)                |
+| **Nginx Version**          | Latest (floating)               | 1.25.3-alpine (pinned)               |
+| **CSP Header**             | ❌ None                         | ✅ Strict policy                     |
+| **Rate Limiting**          | ❌ None                         | ✅ 10 req/s per IP                   |
+| **Security Headers**       | Basic (3)                       | Comprehensive (7)                    |
+| **Vulnerability Scanning** | ❌ None                         | ✅ npm audit in build                |
+| **Resource Limits**        | ❌ None                         | ✅ CPU & Memory limits               |
+| **Health Endpoint**        | Basic                           | JSON response                        |
+| **Use Case**               | Development, demos              | Production deployments               |
+
+### Node Apps Comparison
+
+| Feature                    | hello-world-node (Port 3001)    | secure-node-api (Port 3002)          |
+|----------------------------|---------------------------------|--------------------------------------|
+| **Security Level**         | Minimal                         | Production-ready                     |
+| **Middleware**             | Basic Express                   | Helmet, CORS, Rate-limit, Morgan     |
+| **User**                   | Non-root (nodejs)               | Non-root (nodejs)                    |
+| **Health Check**           | Root endpoint                   | Dedicated /health endpoint           |
+| **Logging**                | Console only                    | Morgan logger                        |
+| **CORS**                   | ❌ Not configured               | ✅ Origin restrictions               |
+| **Rate Limiting**          | ❌ None                         | ✅ 100 req/15min                     |
+| **Use Case**               | Simple demos, learning          | Production APIs                      |
+
+---
+
 ## 🎓 Learn More
 
 - [Docker Compose Documentation](https://docs.docker.com/compose/)
@@ -578,7 +649,9 @@ Example GitHub Actions workflow snippet:
 ## 📝 Notes
 
 - All containers restart automatically unless stopped manually (`restart: unless-stopped`)
-- The React app depends on both Node services being available
+- Both React apps can run simultaneously on different ports
+- Secure services (secure-react-app, secure-node-api) follow production best practices
+- Basic services (my-react-app, hello-world-node) are simpler for learning and demos
 - Health checks ensure services are ready before marking them as healthy
 - Custom bridge network allows services to communicate using service names
 - All images are built from local Dockerfiles (no pre-built images pulled from registries)
