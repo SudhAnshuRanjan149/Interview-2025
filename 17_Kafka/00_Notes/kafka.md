@@ -1,36 +1,64 @@
 # Apache Kafka - Interview Questions & Answers
 
-## Table of Contents
+## Questions List
 
 1. [What is Apache Kafka and what problem does it solve?](#1-what-is-apache-kafka-and-what-problem-does-it-solve)
-2. [Key Components of Kafka](#2-key-components-of-kafka)
-3. [Kafka Topics and Partitions](#3-kafka-topics-and-partitions)
-4. [Producer vs Consumer](#4-producer-vs-consumer)
-5. [Durability and Reliability](#5-durability-and-reliability)
-6. [Consumer Groups](#6-consumer-groups)
-7. [Delivery Semantics](#7-delivery-semantics)
-8. [Retention Policy](#8-retention-policy)
-9. [Replication in Kafka](#9-replication-in-kafka)
-10. [In-Sync Replica (ISR)](#10-in-sync-replica-isr)
-11. [Offsets in Kafka](#11-offsets-in-kafka)
-12. [Log Compaction vs Log Retention](#12-log-compaction-vs-log-retention)
-13. [High Throughput and Low Latency](#13-high-throughput-and-low-latency)
-14. [Partition Keys](#14-partition-keys)
-15. [Idempotent Producers and Transactional Messaging](#15-idempotent-producers-and-transactional-messaging)
-16. [Kafka vs Traditional Message Queues](#16-kafka-vs-traditional-message-queues)
-17. [Schema Evolution](#17-schema-evolution)
-18. [Kafka Streams vs Kafka Connect](#18-kafka-streams-vs-kafka-connect)
-19. [Kafka Connect](#19-kafka-connect)
-20. [Monitoring and Tuning](#20-monitoring-and-tuning)
-21. [Backpressure in Kafka](#21-backpressure-in-kafka)
-22. [Designing Event-Driven Microservices](#22-designing-event-driven-microservices)
-23. [Broker Failover](#23-broker-failover)
-24. [Security in Kafka](#24-security-in-kafka)
-25. [Message Loss and Duplication](#25-message-loss-and-duplication)
+
+2. [Explain the key components of Kafka: Broker, Topic, Partition, Producer, Consumer, and Zookeeper/Kraft.](#2-explain-the-key-components-of-kafka-broker-topic-partition-producer-consumer-and-zookeepercraft)
+
+3. [What is a Kafka Topic and how do partitions work?](#3-what-is-a-kafka-topic-and-how-do-partitions-work)
+
+4. [What is the difference between Kafka Producer and Consumer?](#4-what-is-the-difference-between-kafka-producer-and-consumer)
+
+5. [How does Kafka ensure durability and reliability of messages?](#5-how-does-kafka-ensure-durability-and-reliability-of-messages)
+
+6. [What is a Consumer Group and how does it enable parallelism and scalability?](#6-what-is-a-consumer-group-and-how-does-it-enable-parallelism-and-scalability)
+
+7. [Explain the difference between at-most-once, at-least-once, and exactly-once delivery semantics in Kafka.](#7-explain-the-difference-between-at-most-once-at-least-once-and-exactly-once-delivery-semantics-in-kafka)
+
+8. [What is Kafka retention policy and how is it configured?](#8-what-is-kafka-retention-policy-and-how-is-it-configured)
+
+9. [How does replication work in Kafka and what are leader and follower replicas?](#9-how-does-replication-work-in-kafka-and-what-are-leader-and-follower-replicas)
+
+10. [What is ISR (In-Sync Replica) and why is it important?](#10-what-is-isr-in-sync-replica-and-why-is-it-important)
+
+11. [Explain the role of offsets in Kafka and how consumers manage offsets.](#11-explain-the-role-of-offsets-in-kafka-and-how-consumers-manage-offsets)
+
+12. [What is the difference between Kafka's "log compaction" and "log retention by time/size"?](#12-what-is-the-difference-between-kafkas-log-compaction-and-log-retention-by-timesize)
+
+13. [How does Kafka achieve high throughput and low latency?](#13-how-does-kafka-achieve-high-throughput-and-low-latency)
+
+14. [What is a Kafka partition key and how does it affect message distribution?](#14-what-is-a-kafka-partition-key-and-how-does-it-affect-message-distribution)
+
+15. [Explain idempotent producers and transactional messaging in Kafka.](#15-explain-idempotent-producers-and-transactional-messaging-in-kafka)
+
+16. [What is the difference between Kafka and traditional message queues like RabbitMQ or ActiveMQ?](#16-what-is-the-difference-between-kafka-and-traditional-message-queues-like-rabbitmq-or-activemq)
+
+17. [How do you handle schema evolution with Kafka messages (e.g., using Schema Registry, Avro, Protobuf)?](#17-how-do-you-handle-schema-evolution-with-kafka-messages-eg-using-schema-registry-avro-protobuf)
+
+18. [What is Kafka Streams and how is it different from Kafka Connect?](#18-what-is-kafka-streams-and-how-is-it-different-from-kafka-connect)
+
+19. [What is Kafka Connect and when would you use a source connector vs a sink connector?](#19-what-is-kafka-connect-and-when-would-you-use-a-source-connector-vs-a-sink-connector)
+
+20. [How do you monitor and tune Kafka cluster performance (key metrics and tools)?](#20-how-do-you-monitor-and-tune-kafka-cluster-performance-key-metrics-and-tools)
+
+21. [What is backpressure in Kafka consumers and how do you handle it?](#21-what-is-backpressure-in-kafka-consumers-and-how-do-you-handle-it)
+
+22. [How would you design a scalable Kafka-based system for event-driven microservices?](#22-how-would-you-design-a-scalable-kafka-based-system-for-event-driven-microservices)
+
+23. [What happens when a Kafka broker goes down? How does Kafka handle failover?](#23-what-happens-when-a-kafka-broker-goes-down-how-does-kafka-handle-failover)
+
+24. [How do you secure a Kafka cluster (authentication, authorization, encryption)?](#24-how-do-you-secure-a-kafka-cluster-authentication-authorization-encryption)
+
+25. [What are common causes of message loss or duplication in Kafka and how do you prevent them?](#25-what-are-common-causes-of-message-loss-or-duplication-in-kafka-and-how-do-you-prevent-them)
 
 ---
 
-## 1. What is Apache Kafka and what problem does it solve?
+## Detailed Answers
+
+---
+
+### 1. What is Apache Kafka and what problem does it solve?
 
 **Apache Kafka** is a distributed, fault-tolerant event streaming platform designed for high-throughput, low-latency ingestion and processing of real-time data streams.
 
@@ -46,7 +74,7 @@
 
 ---
 
-## 2. Key Components of Kafka
+### 2. Explain the key components of Kafka: Broker, Topic, Partition, Producer, Consumer, and Zookeeper/KRaft.
 
 ### Broker
 - A Kafka server that stores message data and serves client requests (producers/consumers)
@@ -79,7 +107,7 @@
 
 ---
 
-## 3. Kafka Topics and Partitions
+### 3. What is a Kafka Topic and how do partitions work?
 
 ### Kafka Topic
 - Logical category or feed name to which messages are published
@@ -97,7 +125,7 @@ A topic is divided into partitions to:
 
 ---
 
-## 4. Producer vs Consumer
+### 4. What is the difference between Kafka Producer and Consumer?
 
 ### Producer
 - Sends messages to topics
@@ -116,7 +144,7 @@ A topic is divided into partitions to:
 
 ---
 
-## 5. Durability and Reliability
+### 5. How does Kafka ensure durability and reliability of messages?
 
 ### Durability
 - Messages are written to disk in append-only logs (OS page cache friendly)
@@ -132,7 +160,7 @@ A topic is divided into partitions to:
 
 ---
 
-## 6. Consumer Groups
+### 6. What is a Consumer Group and how does it enable parallelism and scalability?
 
 ### What is a Consumer Group?
 A group of one or more consumers sharing the same `group.id` that coordinate to consume data from a set of topics.
@@ -146,7 +174,7 @@ A group of one or more consumers sharing the same `group.id` that coordinate to 
 
 ---
 
-## 7. Delivery Semantics
+### 7. Explain the difference between at-most-once, at-least-once, and exactly-once delivery semantics in Kafka.
 
 ### At-Most-Once
 - Messages **may be lost** but never processed more than once
@@ -167,7 +195,7 @@ A group of one or more consumers sharing the same `group.id` that coordinate to 
 
 ---
 
-## 8. Retention Policy
+### 8. What is Kafka retention policy and how is it configured?
 
 ### What is Retention Policy?
 Defines how long or how much data Kafka keeps per topic. Kafka is not a traditional queue; it retains messages based on time/size, not consumption.
@@ -191,7 +219,7 @@ These can be configured at broker level and overridden per topic.
 
 ---
 
-## 9. Replication in Kafka
+### 9. How does replication work in Kafka and what are leader and follower replicas?
 
 ### How Replication Works
 - Each partition is replicated to multiple brokers
@@ -208,7 +236,7 @@ These can be configured at broker level and overridden per topic.
 
 ---
 
-## 10. In-Sync Replica (ISR)
+### 10. What is ISR (In-Sync Replica) and why is it important?
 
 ### What is ISR?
 **In-Sync Replicas (ISR)** is the set of replicas that are fully caught up with the leader within a certain lag threshold. It includes the leader and followers that are synchronized.
@@ -220,7 +248,7 @@ These can be configured at broker level and overridden per topic.
 
 ---
 
-## 11. Offsets in Kafka
+### 11. Explain the role of offsets in Kafka and how consumers manage offsets.
 
 ### What is an Offset?
 A monotonically increasing integer identifying a message's position within a partition log. Acts as a pointer for consumers to track read progress.
@@ -237,7 +265,7 @@ A monotonically increasing integer identifying a message's position within a par
 
 ---
 
-## 12. Log Compaction vs Log Retention
+### 12. What is the difference between Kafka's "log compaction" and "log retention by time/size"?
 
 ### Log Retention by Time/Size
 - Policy: **"delete"**
@@ -257,7 +285,7 @@ A monotonically increasing integer identifying a message's position within a par
 
 ---
 
-## 13. High Throughput and Low Latency
+### 13. How does Kafka achieve high throughput and low latency?
 
 ### Design Characteristics
 
@@ -283,7 +311,7 @@ A monotonically increasing integer identifying a message's position within a par
 
 ---
 
-## 14. Partition Keys
+### 14. What is a Kafka partition key and how does it affect message distribution?
 
 ### What is a Partition Key?
 A value provided by the producer used to determine which partition a message goes to.
@@ -299,7 +327,7 @@ A value provided by the producer used to determine which partition a message goe
 
 ---
 
-## 15. Idempotent Producers and Transactional Messaging
+### 15. Explain idempotent producers and transactional messaging in Kafka.
 
 ### Idempotent Producers
 - Guarantee that resending the same message due to retries does not result in duplicates in a partition
@@ -320,7 +348,7 @@ A value provided by the producer used to determine which partition a message goe
 
 ---
 
-## 16. Kafka vs Traditional Message Queues
+### 16. What is the difference between Kafka and traditional message queues like RabbitMQ or ActiveMQ?
 
 ### Apache Kafka
 - Log-based, persistent event streaming platform
@@ -340,7 +368,7 @@ A value provided by the producer used to determine which partition a message goe
 
 ---
 
-## 17. Schema Evolution
+### 17. How do you handle schema evolution with Kafka messages (e.g., using Schema Registry, Avro, Protobuf)?
 
 ### Approach
 Use a schema-aware serialization format:
@@ -364,7 +392,7 @@ Design schemas with backward/forward compatibility:
 
 ---
 
-## 18. Kafka Streams vs Kafka Connect
+### 18. What is Kafka Streams and how is it different from Kafka Connect?
 
 ### Kafka Streams
 - A Java library for building **stream processing applications** on top of Kafka
@@ -381,7 +409,7 @@ Design schemas with backward/forward compatibility:
 
 ---
 
-## 19. Kafka Connect
+### 19. What is Kafka Connect and when would you use a source connector vs a sink connector?
 
 ### What is Kafka Connect?
 A framework to move data between Kafka and other systems with minimal custom code. Provides configuration-based deployment of connectors.
@@ -402,7 +430,7 @@ Reads data from Kafka topics and writes to an external system.
 
 ---
 
-## 20. Monitoring and Tuning
+### 20. How do you monitor and tune Kafka cluster performance (key metrics and tools)?
 
 ### Key Metrics to Monitor
 
@@ -438,7 +466,7 @@ Reads data from Kafka topics and writes to an external system.
 
 ---
 
-## 21. Backpressure in Kafka
+### 21. What is backpressure in Kafka consumers and how do you handle it?
 
 ### What is Backpressure?
 A condition where consumers cannot keep up with the rate of incoming messages. This leads to growing consumer lag and potential resource exhaustion in downstream systems.
@@ -467,7 +495,7 @@ Reduce producer rate or apply throttling
 
 ---
 
-## 22. Designing Event-Driven Microservices
+### 22. How would you design a scalable Kafka-based system for event-driven microservices?
 
 ### Key Design Elements
 
@@ -495,7 +523,7 @@ Each microservice:
 
 ---
 
-## 23. Broker Failover
+### 23. What happens when a Kafka broker goes down? How does Kafka handle failover?
 
 ### What Happens When a Broker Goes Down?
 - Partitions for which it was leader or follower become temporarily unavailable or under-replicated
@@ -517,7 +545,7 @@ Each microservice:
 
 ---
 
-## 24. Security in Kafka
+### 24. How do you secure a Kafka cluster (authentication, authorization, encryption)?
 
 ### Authentication
 Use SSL/TLS client auth or SASL mechanisms:
@@ -545,7 +573,7 @@ Enable TLS for:
 
 ---
 
-## 25. Message Loss and Duplication
+### 25. What are common causes of message loss or duplication in Kafka and how do you prevent them?
 
 ### Common Causes of Message Loss
 
