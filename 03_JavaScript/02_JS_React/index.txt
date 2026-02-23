@@ -1,0 +1,6 @@
+page 1 - page 53 => 67 javascript
+page 54 - page 103 => 50 output based questions
+page 104 - page 126 => 27 problem solving questions
+page 127 - page 172 => 52 react questions
+page 128 - page 252 => 42 react scenario based questions
+page 253 - page 253 => 15 Angular questions

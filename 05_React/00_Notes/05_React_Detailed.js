@@ -189,7 +189,8 @@ SECTION 15 — REACT INTERNALS & ADVANCED MECHANISMS
 1. What is React and why is it used?
 --------------------------------------------------
 
-React is a JavaScript library for building user interfaces, created by Facebook. It focuses on building UI as a tree of reusable components rather than as a set of imperative DOM operations.
+React is a JavaScript library for building user interfaces, created by Facebook. It focuses on building UI as a tree of reusable components 
+rather than as a set of imperative DOM operations.
 
 Key ideas:
 
@@ -200,7 +201,8 @@ Key ideas:
   Instead of manually updating the DOM, you describe what the UI should look like for a given state, and React handles updating the DOM when state changes.
 
 - Virtual DOM:
-  React keeps a lightweight in-memory representation of the DOM (the “virtual DOM”). When state changes, it diffs the new virtual tree against the previous one and applies only the minimal required operations to the real DOM. This is usually more efficient and leads to smoother UI updates.
+  React keeps a lightweight in-memory representation of the DOM (the “virtual DOM”). When state changes, it diffs the new virtual tree against 
+  the previous one and applies only the minimal required operations to the real DOM. This is usually more efficient and leads to smoother UI updates.
 
 Why it’s used:
 
@@ -594,7 +596,8 @@ In TypeScript projects, compile-time typing often replaces or supplements PropTy
 9. What is state in React?
 --------------------------
 
-State is mutable data managed by a component that affects what is rendered. When state changes, React re-renders the component (and its children) to reflect the new UI.
+State is mutable data managed by a component that affects what is rendered. When state changes, React re-renders the component 
+(and its children) to reflect the new UI.
 
 In function components:
 
@@ -644,7 +647,8 @@ Key points:
   State updates are batched; don’t rely on the old value directly, use functional updates when needed (`setCount(c => c + 1)`).
 
 - Local vs global:
-  State can be local to a component, or lifted up to a shared parent, or managed in an external store (Redux, Zustand, etc.) for global app state.
+  State can be local to a component, or lifted up to a shared parent, or managed in an external store (Redux, Zustand, etc.)
+  for global app state.
 
 - Triggers re-render:
   Calling setState/useState setter causes React to re-run the component and reconcile UI.
@@ -714,7 +718,8 @@ Benefits of one-way data binding:
 
 Contrast with two-way binding (like classic AngularJS):
 
-- In two-way binding, a form input might directly update a model which automatically re-updates the view, sometimes leading to hard-to-trace dependencies.
+- In two-way binding, a form input might directly update a model which automatically re-updates the view, sometimes leading 
+to hard-to-trace dependencies.
 - In React, this is always explicit through controlled components.
 
 */
