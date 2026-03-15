@@ -1,0 +1,30 @@
+AgentIQ - Advanced Agentic AI Chat Backend
+==========================================
+
+What is AgentIQ?
+AgentIQ is an advanced multi-agent AI chat system built with FastAPI, LangChain, and LangGraph.
+It provides intelligent routing between different AI agents based on user query intent.
+
+Key Features:
+- Multi-agent orchestration using LangGraph
+- Retrieval-Augmented Generation (RAG) for document-based queries
+- Real-time tool integration (weather, news, calculations)
+- Streaming responses using Server-Sent Events
+- Redis-based conversation memory
+- ChromaDB vector storage for semantic search
+
+Architecture:
+The system uses a supervisor agent that classifies incoming queries and routes them to specialized agents:
+1. RAG Agent - Answers questions from your local documents
+2. LLM Agent - Handles general knowledge queries
+3. Tools Agent - Fetches real-time data from external APIs
+
+Technologies Used:
+- FastAPI for the web framework
+- LangChain and LangGraph for AI orchestration
+- OpenAI GPT-4o for language understanding
+- ChromaDB for vector storage
+- Redis for session management
+- Pydantic for data validation
+
+This is a production-grade system designed for learning advanced AI engineering concepts.

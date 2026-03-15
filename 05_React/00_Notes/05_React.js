@@ -368,7 +368,7 @@ SECTION 15 — REACT INTERNALS & ADVANCED MECHANISMS
  * - getSnapshotBeforeUpdate()
  * - componentDidUpdate()
  *
- *
+ * 
  * 14. What is the unmounting phase?
  * -----------------------------------
  * Unmounting = when a component is removed from the DOM.

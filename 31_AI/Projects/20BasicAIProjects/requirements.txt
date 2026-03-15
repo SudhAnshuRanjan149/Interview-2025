@@ -1,0 +1,185 @@
+# Requirements grouped by project (20 Mini-Projects)
+# Deduplicated: common/shared packages are listed in the COMMON section.
+# Project sections comment repeated/common packages and list only project-specific extras.
+
+# -----------------------------
+# COMMON (install these first; shared across many projects)
+python-dotenv
+requests  # used for Gemini REST and simple HTTP calls
+fastapi
+uvicorn
+langchain
+langchain-openai
+langchain-community
+langgraph
+chromadb
+sentence-transformers
+rank-bm25
+httpx
+redis
+pypdf
+python-docx
+fastmcp
+ragas
+langsmith
+pydantic
+numpy
+datasets
+tiktoken
+
+# -----------------------------
+# Project 1 — CLI Q&A Bot
+# Concept: LLM API basics — tokens, temperature, system prompts
+# python-dotenv  # in COMMON
+# requests  # in COMMON (for Gemini)
+
+# -----------------------------
+# Project 2 — Streaming Echo Server
+# Concept: Server-Sent Events + streaming LLM responses
+# openai  # in COMMON
+# fastapi  # in COMMON
+# uvicorn  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 3 — Prompt Comparator
+# Concept: Prompt engineering and system prompts
+# openai  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 4 — Sentence Similarity Scorer
+# Concept: Embeddings and cosine similarity
+# openai  # in COMMON
+# numpy  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 5 — Personal Notes Search
+# Concept: Vector DB basics (ChromaDB)
+# chromadb  # in COMMON
+# openai  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 6 — Chunking Visualizer
+# Concept: Document chunking strategies
+# langchain  # in COMMON
+# langchain-community  # in COMMON
+# pypdf  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 7 — FAQ Bot from a PDF (RAG pipeline)
+# Concept: Ingest -> retrieve -> generate
+# fastapi  # in COMMON
+# uvicorn  # in COMMON
+# langchain  # in COMMON
+# langchain-openai  # in COMMON
+# chromadb  # in COMMON
+# pypdf  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 8 — Search Quality Comparer
+# Concept: Hybrid search (BM25 + vectors)
+# chromadb  # in COMMON
+# rank-bm25  # in COMMON
+# openai  # in COMMON
+# numpy  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 9 — RAG Quality Scorecard
+# Concept: RAG evaluation with RAGAS
+# ragas  # in COMMON
+# langchain  # in COMMON
+# langchain-openai  # in COMMON
+# chromadb  # in COMMON
+# datasets  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 10 — Calculator Agent (tool calling)
+# openai  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 11 — Weather + News Agent (ReAct)
+# Concept: tools + web APIs
+# langchain  # in COMMON
+# langchain-openai  # in COMMON
+# httpx  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 12 — Two-Node Classifier Graph (LangGraph basics)
+# langgraph  # in COMMON
+# langchain-openai  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 13 — Research + Summary Duo (multi-agent supervisor)
+# langgraph  # in COMMON
+# langchain  # in COMMON
+# langchain-openai  # in COMMON
+# langchain-community  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 14 — Stateful Chat CLI (Redis memory)
+# openai  # in COMMON
+# redis  # in COMMON
+# tiktoken  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 15 — User Fact Memory Bot (long-term vector memory)
+# openai  # in COMMON
+# chromadb  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 16 — Weather Tool (LangChain BaseTool pattern)
+# langchain  # in COMMON
+# langchain-openai  # in COMMON
+# httpx  # in COMMON
+# pydantic  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 17 — Local File Reader MCP Server
+# fastmcp  # in COMMON
+# langchain  # in COMMON
+# langchain-openai  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 18 — Smart Cache Middleware (FastAPI + Redis)
+# fastapi  # in COMMON
+# uvicorn  # in COMMON
+# redis  # in COMMON
+# openai  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 19 — Traced RAG Pipeline (LangSmith)
+# langchain  # in COMMON
+# langchain-openai  # in COMMON
+# chromadb  # in COMMON
+# langsmith  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Project 20 — Request Filter Middleware (guardrails)
+# fastapi  # in COMMON
+# uvicorn  # in COMMON
+# python-dotenv  # in COMMON
+
+# -----------------------------
+# Optional / utility packages used across projects
+# sentence-transformers  # in COMMON
+# numpy  # in COMMON
+# python-docx  # in COMMON
+
+
