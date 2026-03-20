@@ -10,6 +10,9 @@ import UseCallbackExamplesDefault from './useCallback/Examples';
 import UseMemoNotesDefault from './useMemo/Notes';
 import UseMemoExamplesDefault from './useMemo/Examples';
 
+import UseContextNotesDefault from './useContext/Notes';
+import UseContextExamplesDefault from './useContext/Examples';
+
 
 const HooksMaster = () => {
 
@@ -23,6 +26,8 @@ const HooksMaster = () => {
             <UseCallbackExamplesDefault />
             <UseMemoNotesDefault />
             <UseMemoExamplesDefault />
+            <UseContextNotesDefault />
+            <UseContextExamplesDefault />
         </div>
     );
 };
