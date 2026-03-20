@@ -4,6 +4,12 @@ import UseStateExamplesDefault from './useState/Examples';
 import UseEffectNotesDefault from './useEffect/Notes';
 import UseEffectExamplesDefault from './useEffect/Examples';
 
+import UseCallbackNotesDefault from './useCallback/Notes';
+import UseCallbackExamplesDefault from './useCallback/Examples';
+
+import UseMemoNotesDefault from './useMemo/Notes';
+import UseMemoExamplesDefault from './useMemo/Examples';
+
 
 const HooksMaster = () => {
 
@@ -13,6 +19,10 @@ const HooksMaster = () => {
             <UseStateExamplesDefault />
             <UseEffectNotesDefault />
             <UseEffectExamplesDefault />
+            <UseCallbackNotesDefault />
+            <UseCallbackExamplesDefault />
+            <UseMemoNotesDefault />
+            <UseMemoExamplesDefault />
         </div>
     );
 };
