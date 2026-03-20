@@ -726,6 +726,7 @@ to hard-to-trace dependencies.
 
 
 
+
 /**
 11. What are React lifecycle methods?
 -------------------------------------
@@ -9630,6 +9631,9 @@ Rule of thumb:
 
 
 
+
+
+
 /**
 43. What is the Context API and when should you use it?
 -------------------------------------------------------
@@ -12899,7 +12903,6 @@ Choose based on:
 - Bundle size requirements
 - Feature needs (Suspense, middleware, etc.)
 */
-
 
 
 /**
@@ -22461,8 +22464,6 @@ Concurrency in React 18:
 */
 
 
-
-
 /**
 71. What is Suspense and how does it help with async rendering?
 ---------------------------------------------------------------
@@ -23068,6 +23069,8 @@ React Suspense:
 - Growing ecosystem support
 - Future of async rendering in React
 */
+
+
 
 
 
@@ -25393,6 +25396,7 @@ Best Practices:
 - Fix biggest issues first
 - Measure before and after optimization
 */
+
 
 
 
@@ -28918,6 +28922,7 @@ React Fiber:
 - Scheduling based on priority
 - Critical innovation for React's future
 */
+
 
 
 
