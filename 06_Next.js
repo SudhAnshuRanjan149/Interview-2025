@@ -8,7 +8,8 @@ FUNDAMENTAL CONCEPTS
 =======================================
 
 1. What is Next.js and what are its key features?
-2. What are the differences between SSR (Server-Side Rendering), SSG (Static Site Generation), and CSR (Client-Side Rendering)?
+2. What are the differences between SSR (Server-Side Rendering), SSG (Static Site Generation), 
+and CSR (Client-Side Rendering)?
 3. Explain the file-based routing system in Next.js
 4. What is the difference between the Pages Router and App Router?
 5. What is the purpose of _app.js and _document.js files?
@@ -161,7 +162,9 @@ TESTING
 1. WHAT IS NEXT.JS AND ITS KEY FEATURES?
 -----------------------------------------
 
-Next.js is a React framework that gives you a full application runtime: routing, data fetching, rendering modes, and backend APIs, all in one project. It sits on top of React and solves common web app problems like SEO, performance, and deployment. Core features include:
+Next.js is a React framework that gives you a full application runtime: routing, data fetching, rendering modes, and backend 
+APIs, all in one project. It sits on top of React and solves common web app problems like SEO, performance, and deployment. 
+Core features include:
 
 - Multiple rendering modes (SSR, SSG, ISR, CSR) so you can choose per page how it should be rendered.
 - File-based routing, so your folder and file structure becomes your URL structure.
@@ -176,9 +179,14 @@ Next.js is a React framework that gives you a full application runtime: routing,
 
 All three describe *when* and *where* HTML is generated:
 
-- SSR (Server-Side Rendering): HTML is generated on the server on every request. Good when data must be always fresh or personalized, like dashboards or user-specific pages. Tradeoff is higher server cost and slightly slower first response.
-- SSG (Static Site Generation): HTML is generated at build time and served as static files. Great for content that doesn’t change often (blogs, docs, marketing pages). Delivers best performance and scalability, but content is “frozen” until you rebuild (unless you add ISR).
-- CSR (Client-Side Rendering): Server initially sends a minimal HTML shell, and the browser downloads JavaScript and fetches data to render UI. It’s closest to a pure React SPA. You get a very dynamic app, but initial load and SEO can be worse compared to SSR/SSG.
+- SSR (Server-Side Rendering): HTML is generated on the server on every request. Good when data must be always fresh or 
+personalized, like dashboards or user-specific pages. Tradeoff is higher server cost and slightly slower first response.
+- SSG (Static Site Generation): HTML is generated at build time and served as static files. Great for content that doesn’t 
+change often (blogs, docs, marketing pages). Delivers best performance and scalability, but content is “frozen” until you 
+rebuild (unless you add ISR).
+- CSR (Client-Side Rendering): Server initially sends a minimal HTML shell, and the browser downloads JavaScript and fetches 
+data to render UI. It’s closest to a pure React SPA. You get a very dynamic app, but initial load and SEO can be worse 
+compared to SSR/SSG.
 
 
 3. FILE-BASED ROUTING SYSTEM IN NEXT.JS
@@ -197,7 +205,8 @@ Next.js turns your filesystem into a router, so you don’t manually configure r
   - app/about/page.js → /about
   - app/blog/[slug]/page.js → /blog/my-post
 
-Dynamic routes are declared with [param] in the filename, and nested folders create nested routes automatically, which makes structure and URLs tightly aligned.
+Dynamic routes are declared with [param] in the filename, and nested folders create nested routes automatically, which makes 
+structure and URLs tightly aligned.
 
 
 4. DIFFERENCE BETWEEN PAGES ROUTER AND APP ROUTER
@@ -211,7 +220,8 @@ Dynamic routes are declared with [param] in the filename, and nested folders cre
 
 - App Router (app/):
   - Introduced in Next.js 13 and built around React Server Components.
-  - Uses layout.js, page.js, loading.js, error.js to define nested layouts, loading states, and error boundaries per route segment.
+  - Uses layout.js, page.js, loading.js, error.js to define nested layouts, loading states, 
+  and error boundaries per route segment.
   - Data fetching is done directly in Server Components using async functions, and caching is built into the framework.
   - Supports advanced patterns like parallel routes, intercepting routes, and streaming HTML to the client.
 
@@ -224,13 +234,15 @@ App Router is the future direction of Next.js, offering better performance and s
 These are specific to the *Pages Router*:
 
 - _app.js:
-  - Wraps every page component, so it’s the right place for global layout and providers (Redux, React Query, theme providers, etc).
+  - Wraps every page component, so it’s the right place for global layout and providers 
+  (Redux, React Query, theme providers, etc).
   - Runs on both server and client.
   - You can inject global props or layout that persists during navigation (e.g., a navbar, footer).
 
 - _document.js:
   - Only rendered on the server and controls the HTML document skeleton: <html>, <head>, and <body>.
-  - Good place for adding custom lang attributes, global meta tags, or external font/script tags that must be in the initial HTML.
+  - Good place for adding custom lang attributes, global meta tags, or external font/script tags that 
+  must be in the initial HTML.
   - Does not re-run on client-side navigation; it’s evaluated once on initial load.
 
 
@@ -297,7 +309,8 @@ next/head is a React component for adding elements into the <head> of the docume
   - Link tags (favicons, preconnect, fonts).
 - Multiple Head components on a page are merged, and where conflicts occur (e.g., title), the last one wins.
 - It’s crucial for SEO and accessibility because it lets each page expose meaningful metadata.
-- In the App Router, similar responsibilities are managed with the Metadata API and special exports instead of next/head, but conceptually it’s the same idea: controlling the <head> on a per-route basis.
+- In the App Router, similar responsibilities are managed with the Metadata API and special exports instead of next/head, but 
+conceptually it’s the same idea: controlling the <head> on a per-route basis.
 
 
 10. PUBLIC DIRECTORY USAGE IN NEXT.JS
@@ -315,7 +328,8 @@ The public/ folder is a passthrough for static assets that should be served as-i
   - Legacy assets that must have a fixed URL.
 - In components, you reference them with absolute paths from root:
   - <img src="/images/banner.png" alt="Banner" />
-- For images, you often prefer the next/image component with /public paths so you get optimization, but the underlying file still lives in public/.
+- For images, you often prefer the next/image component with /public paths so you get optimization, but the underlying file 
+still lives in public/.
 
 * /
 
@@ -329,7 +343,7 @@ RENDERING & DATA FETCHING - ANSWERS
 11. HOW DO YOU IMPLEMENT DYNAMIC ROUTES IN NEXT.JS?
 ----------------------------------------------------
 
-Dynamic routes allow you to create pages with variable URL segments using square brackets in filenames. [web:26][web:27][web:30]
+Dynamic routes allow you to create pages with variable URL segments using square brackets in filenames.
 
 Pages Router (pages/ directory):
 - Create a file with brackets: pages/blog/[slug].js → matches /blog/any-slug
@@ -345,7 +359,7 @@ export default function BlogPost() {
   return <h1>Post: {slug}</h1>
 }
 
-App Router (app/ directory): [web:27][web:30]
+App Router (app/ directory):
 - Create a folder with brackets: app/blog/[slug]/page.js
 - Access parameters using useParams hook or params prop
 
@@ -365,7 +379,7 @@ Advanced patterns:
 12. NEXT.JS COMPONENT USING getStaticPaths FOR DYNAMIC ROUTES
 ----------------------------------------------------------------
 
-getStaticPaths works with getStaticProps to pre-render dynamic routes at build time. [web:26][web:33]
+getStaticPaths works with getStaticProps to pre-render dynamic routes at build time.
 
 Example - Blog Posts:
 // pages/blog/[slug].js
@@ -432,7 +446,7 @@ export async function getServerSideProps() {
   return { props: { data } }
 }
 
-Client-Side Data Fetching: [web:31][web:34]
+Client-Side Data Fetching:
 - Data fetched in the browser after initial page load
 - Uses useEffect, SWR, React Query, or other client libraries
 - Good for user-specific data, dashboards, interactive features
@@ -466,7 +480,7 @@ When to use each:
 -------------------------------------------------------------
 
 
-React Server Components (RSC) are components that render only on the server and never send JavaScript to the client. [web:31][web:34]
+React Server Components (RSC) are components that render only on the server and never send JavaScript to the client.
 
 Key characteristics:
 - Default in Next.js App Router (app/ directory)
@@ -497,7 +511,7 @@ export default async function PostsPage() {
   )
 }
 
-Client Components (marked with 'use client'): [web:31][web:34]
+Client Components (marked with 'use client'):
 'use client'
 
 import { useState } from 'react'
@@ -588,7 +602,8 @@ function Page({ staticData }) {
 16. HOW SHALLOW ROUTING WORKS IN NEXT.JS
 -----------------------------------------
 
-Shallow routing allows you to change the URL without re-running data fetching methods (getStaticProps, getServerSideProps, etc.).
+Shallow routing allows you to change the URL without re-running data fetching methods 
+(getStaticProps, getServerSideProps, etc.).
 
 It only updates the URL and router state without triggering a full page navigation.
 
@@ -642,7 +657,7 @@ Note: Shallow routing is specific to Pages Router; App Router uses different pat
 17. ROLE OF REACT SUSPENSE IN NEXT.JS APPLICATIONS
 ---------------------------------------------------
 
-React Suspense allows you to show fallback UI while waiting for components or data to load. [web:35]
+React Suspense allows you to show fallback UI while waiting for components or data to load.
 
 In Next.js App Router, Suspense is deeply integrated for streaming and loading states.
 
@@ -669,7 +684,7 @@ Benefits:
 - Better perceived performance
 - Granular loading states for different page sections
 
-Multiple Suspense boundaries: [web:35]
+Multiple Suspense boundaries: 
 export default function Dashboard() {
   return (
     <div>
@@ -742,7 +757,7 @@ The App Router introduces new patterns for data fetching with Server Components:
      return <div>{/* render * /}</div>
    }
 
-4. Streaming with Suspense: [web:32][web:35]
+4. Streaming with Suspense: 
    - Load and display parts of page progressively
    
    export default function Page() {
@@ -849,7 +864,7 @@ Key differences:
 20. IMPLEMENTING STREAMING AND SUSPENSE IN NEXT.JS 13+
 -------------------------------------------------------
 
-Streaming allows sending HTML to the client progressively rather than waiting for entire page. [web:32][web:35]
+Streaming allows sending HTML to the client progressively rather than waiting for entire page.
 
 How it works:
 1. Next.js sends initial HTML shell immediately
@@ -880,7 +895,7 @@ export default function Page() {
   )
 }
 
-Multiple streaming sections: [web:35]
+Multiple streaming sections: 
 export default function Dashboard() {
   return (
     <div>
@@ -947,7 +962,7 @@ ROUTING & NAVIGATION - ANSWERS
 21. DIFFERENCE BETWEEN next/link AND next/router
 --------------------------------------------------
 
-next/link and next/router are two different tools for navigation in Next.js. [web:36][web:37][web:40]
+next/link and next/router are two different tools for navigation in Next.js. 
 
 next/link Component:
 - Declarative navigation component used in JSX
@@ -1002,7 +1017,7 @@ function Component() {
   return <button onClick={() => router.push('/page')}>Go</button>
 }
 
-Key differences: [web:40]
+Key differences:
 - Link: Declarative, component-based, used in JSX markup
 - useRouter: Imperative, hook-based, used in event handlers
 - Link: Better for SEO and prefetching
@@ -1284,7 +1299,7 @@ Common use cases:
 25. ROUTE GROUPS IN THE APP ROUTER
 -----------------------------------
 
-Route groups allow organizing routes without affecting the URL structure. [web:41]
+Route groups allow organizing routes without affecting the URL structure. 
 
 Created using parentheses (folder-name) - the folder name is excluded from the URL.
 
@@ -1373,7 +1388,7 @@ Benefits:
 26. HANDLING PARALLEL ROUTES IN NEXT.JS
 ----------------------------------------
 
-Parallel routes allow rendering multiple pages in the same layout simultaneously. [web:41]
+Parallel routes allow rendering multiple pages in the same layout simultaneously.
 
 Created using @folder naming convention - slots that can be rendered in parallel.
 
@@ -1474,7 +1489,7 @@ Benefits:
 27. INTERCEPTING ROUTES IN NEXT.JS 13+
 ---------------------------------------
 
-Intercepting routes allow loading content from another route while keeping the current page context. [web:41]
+Intercepting routes allow loading content from another route while keeping the current page context. 
 
 Used primarily for modals, where clicking a link shows a modal instead of navigating.
 
@@ -1582,7 +1597,7 @@ Benefits:
 28. IMPLEMENTING INTERNATIONALIZATION (i18n) ROUTING
 ------------------------------------------------------
 
-i18n routing allows serving content in multiple languages based on URL structure. [web:42][web:45]
+i18n routing allows serving content in multiple languages based on URL structure. 
 
 Pages Router (Built-in i18n):
 Next.js has built-in i18n support in Pages Router.
@@ -1638,7 +1653,7 @@ function Component() {
 }
 
 App Router (Custom Implementation):
-App Router doesn't have built-in i18n, so use middleware and libraries. [web:45]
+App Router doesn't have built-in i18n, so use middleware and libraries.
 
 Using next-i18n-router library:
 1. Install:
@@ -1742,7 +1757,7 @@ API ROUTES & MIDDLEWARE - ANSWERS
 29. HOW DO YOU CREATE API ROUTES IN NEXT.JS?
 ---------------------------------------------
 
-API routes allow you to build backend API endpoints within your Next.js application. [web:46][web:48]
+API routes allow you to build backend API endpoints within your Next.js application.
 
 Pages Router (pages/api/):
 - Create files in pages/api/ directory
@@ -1782,7 +1797,7 @@ export default function handler(req, res) {
   }
 }
 
-Dynamic API Routes: [web:46]
+Dynamic API Routes: 
 // pages/api/users/[id].js
 export default function handler(req, res) {
   const { id } = req.query
@@ -1792,7 +1807,7 @@ export default function handler(req, res) {
 App Router (app/api/):
 - Create route.js (or route.ts) files
 - Use HTTP method functions (GET, POST, PUT, DELETE, etc.)
-- Called "Route Handlers" [web:52][web:55]
+- Called "Route Handlers" 
 
 Structure:
 app/
@@ -1904,7 +1919,7 @@ async function deleteProduct(id) {
   // Delete from database
 }
 
-App Router Example: [web:50][web:55]
+App Router Example: 
 // app/api/products/route.js
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -1946,7 +1961,7 @@ export async function POST(request) {
   }
 }
 
-Dynamic Route Handler: [web:50]
+Dynamic Route Handler: 
 // app/api/products/[id]/route.js
 export async function GET(request, { params }) {
   const { id } = params
@@ -2092,14 +2107,14 @@ export const config = {
   ]
 }
 
-Important: Middleware runs on the Edge Runtime, so it has some limitations (no Node.js APIs like fs, certain npm packages). [web:51][web:54]
+Important: Middleware runs on the Edge Runtime, so it has some limitations (no Node.js APIs like fs, certain npm packages).
 
 =======================================
 
 32. NEXT.JS API MIDDLEWARES AND HOW TO IMPLEMENT THEM
 -------------------------------------------------------
 
-API middlewares are functions that process requests before they reach your API route handler. [web:48]
+API middlewares are functions that process requests before they reach your API route handler. 
 
 Next.js doesn't have built-in middleware for API routes, so you need third-party libraries or custom implementation.
 
@@ -2480,7 +2495,7 @@ Best Practices:
 34. WHAT IS THE EDGE RUNTIME IN NEXT.JS AND WHEN TO USE IT?
 ------------------------------------------------------------
 
-Edge Runtime is a lightweight JavaScript runtime that runs on Vercel's Edge Network (or CDN edge locations). [web:51][web:54]
+Edge Runtime is a lightweight JavaScript runtime that runs on Vercel's Edge Network (or CDN edge locations).
 
 Characteristics:
 - Runs globally at edge locations close to users
@@ -2581,7 +2596,7 @@ Available APIs in Edge Runtime:
 - setTimeout, setInterval
 - console, atob, btoa
 
-Note: Middleware MUST use Edge Runtime - there's no option for Node.js runtime. [web:51][web:54]
+Note: Middleware MUST use Edge Runtime - there's no option for Node.js runtime. 
 
 =======================================
 
@@ -2830,7 +2845,7 @@ export async function POST(request) {
 36. DIFFERENCE BETWEEN API ROUTES (PAGES ROUTER) VS ROUTE HANDLERS (APP ROUTER)
 ----------------------------------------------------------------------------------
 
-Both allow creating API endpoints, but with different syntax and capabilities. [web:52][web:55]
+Both allow creating API endpoints, but with different syntax and capabilities. 
 
 API Routes (Pages Router):
 Location: pages/api/
@@ -2857,7 +2872,7 @@ Features:
 - Middleware via third-party libraries (next-connect)
 - Always runs on Node.js runtime
 
-Route Handlers (App Router): [web:52][web:55]
+Route Handlers (App Router):
 Location: app/api/
 File naming: Must be named route.js or route.ts
 Exports: Named exports for each HTTP method
@@ -3000,7 +3015,7 @@ OPTIMIZATION & PERFORMANCE - ANSWERS
 37. HOW TO OPTIMIZE IMAGES IN NEXT.JS USING next/image
 -------------------------------------------------------
 
-The next/image component provides automatic image optimization with minimal configuration. [web:56][web:57][web:58]
+The next/image component provides automatic image optimization with minimal configuration.
 
 Basic Usage:
 import Image from 'next/image'
@@ -3076,7 +3091,7 @@ Quality and Format:
   quality={90} // Default is 75
 />
 
-How it works: [web:56][web:63]
+How it works: 
 - Automatically converts to WebP/AVIF format
 - Serves correctly sized images per device
 - Lazy loads images by default (priority=false)
@@ -3089,11 +3104,11 @@ How it works: [web:56][web:63]
 38. BENEFITS OF USING THE IMAGE COMPONENT
 -------------------------------------------
 
-The Image component offers significant advantages over regular <img> tags: [web:56][web:60]
+The Image component offers significant advantages over regular <img> tags:
 
 1. Automatic Optimization:
 - Converts to modern formats (WebP, AVIF) based on browser support
-- Reduces file size by 23-87% compared to original [web:60]
+- Reduces file size by 23-87% compared to original 
 - Optimizes on-demand, not at build time
 
 2. Responsive Images:
@@ -3430,7 +3445,7 @@ Old Method (Not Recommended):
 42. BEST PRACTICES FOR BUNDLE SIZE OPTIMIZATION
 --------------------------------------------------
 
-Bundle size directly impacts page load speed and user experience. [web:64]
+Bundle size directly impacts page load speed and user experience. 
 
 1. Analyze Bundle:
 // Install bundle analyzer
@@ -3500,7 +3515,7 @@ import Script from 'next/script'
   strategy="lazyOnload" // or 'afterInteractive'
 />
 
-8. SWC Minification (default in Next.js 13+): [web:64]
+8. SWC Minification (default in Next.js 13+): 
 // next.config.js
 module.exports = {
   swcMinify: true // Default in Next.js 13+
@@ -3548,7 +3563,7 @@ Target: Keep initial bundle < 200kb
 43. HOW TO IMPLEMENT CACHING STRATEGIES IN NEXT.JS
 -----------------------------------------------------
 
-Caching improves performance by storing and reusing previously fetched data. [web:62][web:65]
+Caching improves performance by storing and reusing previously fetched data.
 
 1. Static Generation (Build-time Cache):
 export async function getStaticProps() {
@@ -3560,7 +3575,7 @@ export async function getStaticProps() {
   }
 }
 
-2. Incremental Static Regeneration (ISR): [web:62]
+2. Incremental Static Regeneration (ISR):
 export async function getStaticProps() {
   const data = await fetchData()
   
@@ -3570,7 +3585,7 @@ export async function getStaticProps() {
   }
 }
 
-3. Client-Side Caching with SWR: [web:62]
+3. Client-Side Caching with SWR:
 import useSWR from 'swr'
 
 const fetcher = url => fetch(url).then(r => r.json())
@@ -3600,7 +3615,7 @@ const data = await fetch('https://api.example.com/data', {
   next: { revalidate: 3600 } // Every hour
 })
 
-5. API Route Caching: [web:65]
+5. API Route Caching: 
 // pages/api/data.js
 export default function handler(req, res) {
   res.setHeader(
@@ -3677,7 +3692,7 @@ Cache-Control Headers:
 - stale-while-revalidate=120: Serve stale while revalidating
 - immutable: Never revalidate (for hashed assets)
 
-Strategies Summary: [web:62]
+Strategies Summary: 
 - SSG: Build-time cache (fastest)
 - ISR: Periodic revalidation
 - SSR with Cache-Control: Per-request caching
@@ -3689,7 +3704,7 @@ Strategies Summary: [web:62]
 44. ROLE OF BABEL AND SWC IN NEXT.JS
 --------------------------------------
 
-Babel and SWC are JavaScript compilers/transpilers used in Next.js. [web:61][web:64]
+Babel and SWC are JavaScript compilers/transpilers used in Next.js. 
 
 Babel (Legacy):
 - JavaScript transpiler written in JavaScript
@@ -3698,7 +3713,7 @@ Babel (Legacy):
 - Slower compilation
 - Large plugin ecosystem
 
-SWC (Current): [web:61][web:64]
+SWC (Current): 
 - Rust-based compiler (much faster than Babel)
 - Default in Next.js 12+
 - 17x faster than Babel
@@ -4168,7 +4183,7 @@ STYLING & UI - ANSWERS
 47. HOW TO HANDLE CSS IN NEXT.JS
 ----------------------------------
 
-Next.js supports multiple CSS styling approaches. [web:66][web:67]
+Next.js supports multiple CSS styling approaches. 
 
 1. Global CSS:
 // styles/globals.css
@@ -4207,7 +4222,7 @@ export default function Button() {
   )
 }
 
-3. Tailwind CSS: [web:68]
+3. Tailwind CSS: 
 // Install
 npm install tailwindcss postcss autoprefixer
 npx tailwindcss init -p
@@ -4390,7 +4405,7 @@ Best Practice: Use global CSS for base styles, CSS Modules for components
 49. HOW TO INTEGRATE TAILWIND CSS WITH NEXT.JS
 --------------------------------------------------
 
-Tailwind CSS integrates seamlessly with Next.js. [web:68][web:67]
+Tailwind CSS integrates seamlessly with Next.js. 
 
 Installation:
 npm install -D tailwindcss postcss autoprefixer
@@ -4518,7 +4533,7 @@ JIT (Just-In-Time) Mode (default in v3):
 50. WHAT ARE STYLED-JSX AND HOW DO THEY WORK
 ----------------------------------------------
 
-styled-jsx is Next.js's built-in CSS-in-JS solution. [web:70]
+styled-jsx is Next.js's built-in CSS-in-JS solution. 
 
 Basic Usage:
 export default function Component() {
@@ -4902,7 +4917,7 @@ SEO & META TAGS - ANSWERS
 52. HOW TO OPTIMIZE SEO IN NEXT.JS
 --------------------------------------
 
-Next.js provides excellent SEO capabilities through server-side rendering and metadata APIs. [web:71][web:74]
+Next.js provides excellent SEO capabilities through server-side rendering and metadata APIs. 
 
 1. Use Metadata API (App Router):
 // app/layout.js
@@ -5037,7 +5052,7 @@ SEO Checklist:
 53. HOW TO IMPLEMENT META TAGS USING next/head
 -----------------------------------------------
 
-next/head is used in Pages Router to add meta tags. [web:71]
+next/head is used in Pages Router to add meta tags. 
 
 Basic Usage:
 import Head from 'next/head'
@@ -5152,7 +5167,7 @@ Note: In App Router, use Metadata API instead of next/head
 54. WHAT IS THE METADATA API IN NEXT.JS APP ROUTER
 ----------------------------------------------------
 
-The Metadata API is the modern way to handle SEO in the App Router. [web:71][web:74]
+The Metadata API is the modern way to handle SEO in the App Router. 
 
 Static Metadata:
 // app/page.js
@@ -5312,7 +5327,7 @@ export default function Image() {
 55. HOW TO IMPLEMENT OPEN GRAPH TAGS
 ---------------------------------------
 
-Open Graph tags control how content appears when shared on social media. [web:71]
+Open Graph tags control how content appears when shared on social media. 
 
 Pages Router (next/head):
 import Head from 'next/head'
@@ -5584,7 +5599,7 @@ export default function robots() {
 57. HOW TO IMPLEMENT STRUCTURED DATA (JSON-LD)
 ------------------------------------------------
 
-Structured data helps search engines understand your content. [web:72][web:75]
+Structured data helps search engines understand your content. 
 
 Basic JSON-LD:
 // app/page.js
@@ -5773,7 +5788,7 @@ AUTHENTICATION & SECURITY - ANSWERS
 58. HOW TO IMPLEMENT AUTHENTICATION IN NEXT.JS
 ------------------------------------------------
 
-Authentication can be implemented using various strategies. [web:77][web:78]
+Authentication can be implemented using various strategies. 
 
 1. Using NextAuth.js (Recommended):
 // Install
@@ -5912,7 +5927,7 @@ export async function POST(request) {
 59. WHAT IS NEXTAUTH.JS AND HOW TO USE IT
 -------------------------------------------
 
-NextAuth.js is the most popular authentication library for Next.js. [web:76][web:79][web:80]
+NextAuth.js is the most popular authentication library for Next.js. 
 
 Installation:
 npm install next-auth
@@ -6341,7 +6356,7 @@ export function CanAccess({ roles, children, fallback = null }) {
 62. HOW TO HANDLE CSRF PROTECTION IN NEXT.JS
 ---------------------------------------------
 
-CSRF (Cross-Site Request Forgery) protection prevents unauthorized actions. [web:81][web:84]
+CSRF (Cross-Site Request Forgery) protection prevents unauthorized actions. 
 
 Built-in CSRF Protection (NextAuth):
 NextAuth.js has built-in CSRF protection for authentication routes.
@@ -6456,7 +6471,7 @@ Additional Security Measures:
 63. BEST PRACTICES FOR HANDLING SECRETS AND SENSITIVE DATA
 -----------------------------------------------------------
 
-Proper secret management is crucial for security. [web:81][web:84]
+Proper secret management is crucial for security. 
 
 1. Environment Variables:
 // .env.local (never commit this file)
@@ -6727,7 +6742,7 @@ export default function Custom500() {
 66. HOW TO HANDLE ERROR BOUNDARIES IN NEXT.JS
 ------------------------------------------------
 
-Error boundaries catch JavaScript errors in components. [web:82][web:85]
+Error boundaries catch JavaScript errors in components. 
 
 Class Component Error Boundary:
 // components/ErrorBoundary.js
@@ -6805,7 +6820,7 @@ export default function Layout() {
 67. WHAT IS error.js IN THE APP ROUTER
 ----------------------------------------
 
-error.js creates error UI for route segments in App Router. [web:82]
+error.js creates error UI for route segments in App Router. 
 
 Basic Error Page:
 // app/error.js
@@ -7025,7 +7040,7 @@ DEPLOYMENT & CONFIGURATION - ANSWERS
 69. HOW TO CONFIGURE ENVIRONMENT VARIABLES IN NEXT.JS
 -------------------------------------------------------
 
-Environment variables configure your app for different environments. [web:86][web:88][web:89]
+Environment variables configure your app for different environments. 
 
 1. Environment Variable Files:
 .env.local          → All environments (highest priority, never commit)
@@ -7125,7 +7140,7 @@ Important Rules:
 70. DEPLOYMENT STRATEGIES FOR NEXT.JS APPLICATIONS
 ----------------------------------------------------
 
-Next.js supports multiple deployment strategies. [web:91]
+Next.js supports multiple deployment strategies. 
 
 1. Vercel (Recommended):
 - Zero-config deployment
@@ -7156,7 +7171,7 @@ pm2 start npm --name "nextjs" -- start
   }
 }
 
-3. Docker Container: [web:91]
+3. Docker Container: 
 # Dockerfile
 FROM node:18-alpine AS deps
 WORKDIR /app
@@ -7408,7 +7423,7 @@ Railway:
 72. WHAT IS next.config.js AND WHAT CAN YOU CONFIGURE
 -------------------------------------------------------
 
-next.config.js is the configuration file for Next.js. [web:87][web:92]
+next.config.js is the configuration file for Next.js. 
 
 Basic Structure:
 // next.config.js
@@ -7600,7 +7615,7 @@ module.exports = nextConfig
 73. HOW TO IMPLEMENT CUSTOM WEBPACK CONFIGURATION
 ---------------------------------------------------
 
-Customize webpack config for advanced use cases. [web:92][web:95]
+Customize webpack config for advanced use cases. 
 
 Basic Webpack Customization:
 // next.config.js
@@ -7803,7 +7818,7 @@ Important: Always return the modified config
 74. HOW TO SET UP ENVIRONMENT-SPECIFIC CONFIGURATIONS
 -------------------------------------------------------
 
-Manage configurations for different environments. [web:90]
+Manage configurations for different environments. 
 
 1. Multiple .env Files:
 .env.development      → Development
@@ -8026,7 +8041,7 @@ ADVANCED TOPICS - ANSWERS
 75. HOW TO IMPLEMENT PROGRESSIVE WEB APP (PWA) FEATURES
 --------------------------------------------------------
 
-PWAs provide native app-like experience on the web. [web:97]
+PWAs provide native app-like experience on the web.
 
 1. Install next-pwa:
 npm install next-pwa
@@ -8146,7 +8161,7 @@ PWA Features:
 76. HOW TO INTEGRATE GRAPHQL IN NEXT.JS APPLICATIONS
 -------------------------------------------------------
 
-GraphQL provides efficient data fetching. [web:96][web:100]
+GraphQL provides efficient data fetching.
 
 1. Install Apollo Client:
 npm install @apollo/client graphql
@@ -8321,7 +8336,7 @@ const GET_POSTS: TypedDocumentNode<PostsData> = gql`
 77. HOW TO HANDLE FILE UPLOADS IN NEXT.JS
 ------------------------------------------
 
-File uploads can be handled server-side or with cloud storage. [web:101]
+File uploads can be handled server-side or with cloud storage. 
 
 1. Basic File Upload (API Route):
 // app/api/upload/route.js
@@ -8501,7 +8516,7 @@ export async function POST(request) {
 78. STRATEGIES FOR IMPLEMENTING MICRO-FRONTENDS
 -------------------------------------------------
 
-Micro-frontends split large apps into smaller, independently deployable parts. [web:104]
+Micro-frontends split large apps into smaller, independently deployable parts. 
 
 1. Next.js Multi-Zones:
 // Main app (main-app)
@@ -8783,7 +8798,7 @@ export default function RealtimeComponent() {
 80. HOW TO INTEGRATE A CMS WITH NEXT.JS
 ------------------------------------------
 
-CMS integration allows content management separate from code. [web:102]
+CMS integration allows content management separate from code. 
 
 1. Headless CMS (Contentful):
 npm install contentful
@@ -8899,7 +8914,7 @@ export const client = prismic.createClient(process.env.PRISMIC_REPOSITORY_NAME)
 81. HOW TO IMPLEMENT A/B TESTING IN NEXT.JS
 ---------------------------------------------
 
-A/B testing compares variations to optimize user experience. [web:102][web:105]
+A/B testing compares variations to optimize user experience. 
 
 1. Using GrowthBook:
 npm install @growthbook/growthbook-react
@@ -9280,7 +9295,7 @@ TESTING - ANSWERS
 86. HOW TO TEST NEXT.JS APPLICATIONS
 -------------------------------------
 
-Next.js testing involves multiple testing levels. [web:107][web:108]
+Next.js testing involves multiple testing levels. 
 
 1. Setup Jest with React Testing Library:
 npm install -D jest jest-environment-jsdom @testing-library/react @testing-library/jest-dom
@@ -9412,7 +9427,7 @@ Testing Levels:
 87. TESTING LIBRARIES THAT WORK WELL WITH NEXT.JS
 ---------------------------------------------------
 
-Popular testing libraries for Next.js: [web:107][web:108][web:113]
+Popular testing libraries for Next.js: 
 
 1. Jest (Unit/Integration Testing):
 npm install -D jest jest-environment-jsdom
@@ -9709,7 +9724,7 @@ test('API handles errors gracefully', async () => {
 89. HOW TO IMPLEMENT E2E TESTING IN NEXT.JS
 ----------------------------------------------
 
-End-to-end testing validates entire user workflows. [web:106][web:111][web:114]
+End-to-end testing validates entire user workflows. 
 
 1. Setup Playwright:
 npm install -D @playwright/test
@@ -9876,7 +9891,7 @@ Best Practices:
 90. TESTING STRATEGIES FOR SERVER COMPONENTS
 ----------------------------------------------
 
-Server Components require different testing approaches. [web:112][web:115]
+Server Components require different testing approaches. 
 
 1. Testing Server Components with Jest:
 // app/page.js (Server Component)
