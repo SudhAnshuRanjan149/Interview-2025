@@ -9,3 +9,4 @@ node_modules/
 
 # Ignore top-level .gitignore (root). Note: this will not untrack an already committed file.
 /.gitignore
+Sensitive
