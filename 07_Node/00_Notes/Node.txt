@@ -1,0 +1,55 @@
+Node.js Interview Questions (Complete List)
+
+
+
+What is event loop? What are the phases of event loop in detail?
+What are the execution priorities of Event loop?
+Is browser/client event loop different from Node event loop?
+What is libuv in Node.js? How does it work?
+What is thread pool in Node.js? How does it work?
+How to prevent blocking of event loop and monitor event loop for starvation?
+What is process.nextTick() in detail?
+What is setImmediate()?
+What are the different types of queues in Node.js, and what is its execution priority?
+Where do process.nextTick() and setImmediate() fit inside the event loop?
+setImmediate vs setTimeout — which is better?
+Why is process.nextTick() dangerous?
+Which one can cause starvation fastest — process.nextTick() or setImmediate()?
+What are streams in Node.js?
+What is back pressure in streams? How to handle it?
+What is pipe() in Node.js?
+How can streams cause memory leaks and how to handle it?
+What kind of events are emitted by streams?
+What is flowing mode and pause mode in streams?
+What is highWaterMark?
+What is Buffer and why is it needed?
+How does Buffer work with streams?
+What is Worker Thread in Node.js?
+Difference between Worker Thread and Child Process.
+Difference between Cluster and Worker Thread.
+How to handle errors in Node.js applications in detail?
+How can you do logging in a Node.js application with the help of Winston, Grafana, and Prometheus? Make a story around it for interview.
+How to do profiling/monitoring in a Node.js application? And on what metrics?
+How can we do performance optimisation of a Node.js application?
+Tell me more about Grafana and Prometheus. How do they work together?
+How can we do documentation of not just the application? For example, with Swagger or any other tool?
+What are DDoS attacks in Node.js? And how to secure our application?
+What is XSS attack? How to secure our app?
+What is CSRF attack and how to secure applications from it?
+What are other kinds of attacks from which we can secure our Node.js application?
+What is rate limiting in a Node.js application? How can we implement it?
+Tell me how you handled authentication and authorisation in your Node.js application with the help of refresh token and access token.
+What is session-based authentication and token-based authentication? Which one is best for which application?
+What are the ways to store tokens? Which is the most secure?
+How can we store our password in a Node.js application?
+What are different ways microservices communicate? How can we do real-time communication? And synchronous communication in microservices?
+How to handle memory leaks in Node.js app? How does memory leak happen in Node.js?
+How does garbage collection work for Node.js application?
+What are different types of architecture patterns we can follow in Node.js apps?
+What is the Circuit Breaker pattern?
+What is routing and what are the different types of routing in Node.js apps?
+What are middlewares and different types of middleware in Node.js apps?
+Tell me about REST APIs and REST Principles?
+What are the different types of status codes used in REST API in detail?
+How can we transfer large files from UI to backend then back into cloud platform?
+How can we store sensitive keys inside our app?
