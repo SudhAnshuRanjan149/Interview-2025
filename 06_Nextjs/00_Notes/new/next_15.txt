@@ -1,0 +1,92 @@
+1. Introduction to Next.js
+2. Hello World
+3. Project Structure
+4. Before We Start
+5. Routing
+6. Nested Routes
+7. Dynamic Routes
+8. Nested Dynamic Routes
+9. Catch-all Segments
+10. Not Found Page
+11. File Colocation
+12. Private Folders
+13. Route Groups
+14. Layouts
+15. Nested Layouts
+16. Multiple Root Layouts
+17. Routing Metadata
+18. title Metadata
+19. Linking Component Navigation
+20. Active Links
+21. params and searchParams
+22. Navigating Programmatically
+23. Templates
+24. Loading UI
+25. Error Handling
+26. Recovering from Errors
+27. Handling Errors in Nested Routes
+28. Handling Errors in Layouts
+29. Handling Global Errors
+30. Parallel Routes
+31. Unmatched Routes
+32. Conditional Routes
+33. Intercepting Routes
+34. Parallel Intercepting Routes
+35. Route Handlers
+36. GET Request
+37. POST Request
+38. Dynamic Route Handlers
+39. PATCH Request
+40. DELETE Request
+41. URL Query Parameters
+42. Headers in Route Handlers
+43. Cookies in Route Handlers
+44. Redirects in Route Handlers
+45. Caching in Route Handlers
+46. Middleware
+47. Rendering
+48. Client-side Rendering (CSR)
+49. Server-side Rendering (SSR)
+50. Suspense SSR
+51. React Server Components
+52. Server and Client Components
+53. Rendering Lifecycle in RSCs
+54. Static Rendering
+55. Dynamic Rendering
+56. generateStaticParams
+57. dynamicParams
+58. Streaming
+59. Server and Client Composition Patterns
+60. Server-only Code
+61. Third Party Packages
+62. Context Providers
+63. Client-only Code
+64. Client Component Placement
+65. Interleaving Server and Client Components
+66. Data Fetching
+67. Fetching Data in Client Components
+68. Fetching Data with Server Components
+69. Loading and Error States
+70. Sequential Data Fetching
+71. Parallel Data Fetching
+72. Fetching From a Database
+73. Data Mutations
+74. Forms with Server Actions
+75. useFormStatus Hook
+76. useActionState Hook
+77. Separating Server Actions
+78. useFormStatus vs useActionState
+79. Update Server Action
+80. Delete Server Action
+81. Optimistic Updates with useOptimistic Hook
+82. Form Component
+83. Authentication
+84. Clerk Setup
+85. Sign in and Sign out
+86. Profile Settings
+87. Conditional UI Rendering
+88. Protecting Routes
+89. Read Session and User Data
+90. Role Based Access Control
+91. Customizing Clerk Components
+92. Deploying Next.js Apps
