@@ -90,3 +90,125 @@
 90. Role Based Access Control
 91. Customizing Clerk Components
 92. Deploying Next.js Apps
+
+---------------------------------------
+
+MISSING TOPICS FOR NEXT.JS INTERVIEW
+
+PERFORMANCE & OPTIMIZATION
+93. Image Optimization with next/image (v10+)
+94. Font Optimization with next/font (v13+)
+95. Script Optimization with next/script (v11+)
+96. Code Splitting & Lazy Loading
+97. Bundle Analysis Tools
+98. Core Web Vitals & Web Performance
+
+CACHING & REVALIDATION (App Router)
+99. Request Memoization (v13+)
+100. Data Cache vs Request Cache (v13+)
+101. revalidatePath() Function (v13+)
+102. revalidateTag() Function (v13+)
+103. Incremental Static Regeneration (ISR) (v9.5+)
+104. Stale-While-Revalidate Pattern (v13+)
+105. On-Demand Revalidation (v12.2+)
+
+PAGES ROUTER (Legacy - v12 and earlier)
+106. pages/ Directory Structure (v9+)
+107. getStaticProps() (v9.3+)
+108. getStaticPaths() (v9.3+)
+109. getServerSideProps() (v9.3+)
+110. getInitialProps() (v9.0+)
+111. Fallback Options (fallback: true/false/'blocking') (v9.3+)
+112. pages/api/ - API Routes (v9+)
+113. API Route Method Handlers (v9+)
+114. Custom _app.js (v9+)
+115. Custom _document.js (v9+)
+116. Custom _error.js (v9+)
+117. next/head Component (v9+)
+118. Preview Mode (v10.3+)
+
+ADVANCED ROUTING & MIDDLEWARE
+119. Edge Middleware (v12+)
+120. Conditional Routes with Middleware (v12+)
+121. Geo-routing with Middleware
+122. Middleware for Authentication (v12+)
+123. Request/Response Manipulation in Middleware
+
+API & BACKEND
+124. File Upload Handling in Route Handlers (v13+)
+125. Streaming Responses (v13+)
+126. Large File Downloads
+127. Multipart/form-data Parsing
+128. WebSocket Integration Patterns
+129. GraphQL Integration with Next.js
+
+STATE MANAGEMENT & DATA
+130. useContext API Patterns
+131. External State Management (Redux, Zustand, Jotai)
+132. Hydration Mismatch - Causes & Solutions (v13+)
+133. Database Integration Patterns
+134. ORM Setup (Prisma, Drizzle)
+135. Connection Pooling
+
+SEO & META
+136. generateMetadata() Function (v13+)
+137. Dynamic Metadata Generation (v13+)
+138. Open Graph Tags for Social Sharing
+139. Structured Data / Schema.org JSON-LD
+140. Sitemap.xml Generation (v13.4+)
+141. robots.txt Configuration
+142. Canonical URLs
+
+TESTING & QUALITY
+143. Unit Testing Setup with Jest
+144. Component Testing with React Testing Library
+145. E2E Testing with Playwright/Cypress
+146. Testing Server Actions (v13.4+)
+147. Testing Route Handlers (v13+)
+148. Performance Testing & Lighthouse
+
+ENVIRONMENT & CONFIGURATION
+149. Environment Variables Setup (.env.local, .env.production)
+150. Exposing Variables to Browser (NEXT_PUBLIC_)
+151. next.config.js Advanced Configuration
+152. Custom Webpack Configuration
+153. Feature Flags & A/B Testing
+154. Build-time Configuration
+
+DEPLOYMENT & DEVOPS
+155. Deployment on Vercel (v9+)
+156. Docker Deployment & Containerization
+157. Self-hosted Deployment (Node.js)
+158. Environment Setup - Production vs Development
+159. Monitoring & Error Tracking (Sentry, etc.)
+160. Performance Monitoring & Analytics
+161. Cold Starts & Serverless Optimization
+162. CI/CD Pipeline Setup
+
+ADVANCED PATTERNS
+163. Partial Pre-rendering (PPR) (v14+)
+164. Edge Functions / Cloudflare Workers Integration
+165. Monorepo Setup with Turborepo (v12+)
+166. Workspace Configuration
+167. Shared Components & Utilities
+168. Concurrent Rendering (v13+)
+169. Suspense Boundaries Advanced Patterns (v13+)
+
+MIGRATION & COMPATIBILITY
+170. Pages Router to App Router Migration (v13+)
+171. Coexistence of Pages & App Router (v13+)
+172. Backwards Compatibility Considerations
+173. Upgrade Path from v12 to v13/v14/v15
+
+COMMON INTERVIEW SCENARIOS
+174. Performance Optimization Strategies
+175. Handling Large-Scale Applications
+176. SEO Best Practices in Next.js
+177. Security Best Practices & CSRF Protection
+178. Rate Limiting & API Protection
+179. Error Handling & Logging Strategy
+180. Caching Strategy Selection
+181. Real-time Features Implementation
+182. Multi-tenant Application Architecture
+
+
