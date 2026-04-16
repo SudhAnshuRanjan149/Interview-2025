@@ -1,0 +1,83 @@
+Python Crash Course
+
+https://youtu.be/VchuKL44s6E?si=QVj_qaLuul8pmwQQ
+
+Advance Python Crash Course
+
+https://youtu.be/9dVnFJtP-ow?si=e4XgjRyQ6TSJW90M
+
+Pydentic
+
+https://youtu.be/PkQIREapb9o?si=Tvr3V490__5g-gie
+
+UV 
+
+https://youtu.be/_x98Rctc3JE?si=QSuzyoq3p-jluEh_
+
+
+FastAPI
+
+https://youtu.be/YxT0K5oEehk?si=pEGmfY-HPtFikm2H
+
+
+--------------------------------------------------------
+
+Pytorch
+
+https://youtu.be/UqA7bxp7VBk?si=LtaTOeKliEEzqt4z
+
+LLM Finetuning - Krish Naik
+
+https://youtu.be/iOdFUJiB0Zc?si=ApJvEELy3ojq2cVD
+
+Vector Less RAG
+
+https://youtu.be/nkbtOplq9jM?si=SQeZvBAqZibPpn99
+
+Finetune Yolo v11
+
+https://youtu.be/r0RspiLG260?si=Mp5U6VMyzSZIpVB2
+
+https://youtu.be/wl8I_zBvgSk?si=xaV9-mgpMdUiDiJ_
+
+https://youtu.be/j0MOGKBqx7E?si=72bWPk534pV6nxrN
+
+
+--------------------------------------------------------
+
+Gen AI Crash Course
+
+https://youtu.be/7qqGnuRrWxg?si=elN9T3mEnA3u4zB7
+
+Agentic AI Crash Course
+
+https://youtu.be/dIb-DujRNEo?si=jO0WW5cc0m7aQZIG
+
+MCP
+
+https://youtu.be/ZoZxQwp1PiM?si=kcnzsPf0pqNGF2JL
+
+FastMCP
+
+https://youtu.be/rnljvmHorQw?si=7RPaAB-c8a86i56t
+
+RAG
+
+https://youtu.be/kcGQlZw1b6Q?si=2DGLgOtaSVVvZPkH
+
+Langchain
+
+https://youtu.be/AOQyRiwydyo?si=MglEBrb_7-UMy44i
+
+LangGraph
+
+https://youtu.be/DtW_Lc9hYoU?si=cnyMT6u8btrxBOY8
+
+
+--------------------------------------------------------
+
+Gen AI with JavaScript
+
+https://youtu.be/qPxxxA-RdQw?si=HNGTsyXYpr3_0fUQ
+
+
