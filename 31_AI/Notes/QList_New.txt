@@ -1,0 +1,250 @@
+# AI/ML/DL
+
+1. What is the difference between AI, ML, and DL?
+2. What is supervised, unsupervised, and reinforcement learning?
+3. What is overfitting and underfitting? How do you handle them?
+4. What is the bias-variance tradeoff?
+5. What are activation functions? (ReLU, Sigmoid, Softmax)
+6. What is backpropagation?
+7. What is gradient descent? Variants: SGD, Adam, RMSProp
+8. What is a loss function? Give examples.
+9. What is regularization? L1 vs L2?
+10. What is cross-validation?
+
+---
+
+# Gen AI
+
+1. What is Generative AI? How is it different from traditional ML?
+2. What is a Foundation Model?
+3. What is a Large Language Model (LLM)?
+4. What is the difference between GPT, BERT, and T5?
+5. What is zero-shot, one-shot, and few-shot learning?
+6. What is temperature and top-p in LLM inference?
+7. What is the difference between encoder-only, decoder-only, and encoder-decoder models?
+8. What is token, tokenization, and context window?
+9. What is hallucination in LLMs?
+10. What is a system prompt vs user prompt?
+
+---
+
+# Agentic AI - Tool Calling, ReAct, Multi-Agent, Orchestration, Semantic Kernel
+
+1. What is an AI Agent? How is it different from a chatbot?
+2. What is Tool Calling / Function Calling in LLMs?
+3. What is the ReAct (Reasoning + Acting) pattern?
+4. What is the difference between single-agent and multi-agent systems?
+5. What are the roles in a multi-agent system? (Planner, Executor, Critic)
+6. What is an Orchestrator in Agentic AI?
+7. What is Semantic Kernel? What are its core components (Kernel, Plugins, Planners)?
+8. What is AutoGen? How does it enable multi-agent conversation?
+9. What is agent memory vs agent tools vs agent planning?
+10. What is the difference between sequential and parallel agent execution?
+
+---
+
+# RAG / Vector DB / Graph DB / Chunking / Embedding / Search
+
+1. What is RAG (Retrieval-Augmented Generation)?
+2. What are the components of a RAG pipeline?
+3. What is an embedding model? Give examples. (text-embedding-ada, BGE, E5)
+4. What is a Vector Database? Examples: Pinecone, Weaviate, Qdrant, ChromaDB
+5. What is similarity search? Cosine similarity vs Dot product vs Euclidean?
+6. What is chunking? Fixed-size vs semantic chunking?
+7. What is chunk overlap and why does it matter?
+8. What is reranking? Why is it used after retrieval?
+9. What is hybrid search? (BM25 + vector search)
+10. What is a Graph Database? When would you use it over a vector DB?
+11. What is the difference between sparse and dense retrieval?
+
+---
+
+# Memory - Short Term, Long Term, Context Window, Knowledge Graph
+
+1. What is short-term memory in LLM agents?
+2. What is long-term memory in LLM agents?
+3. What is a memory layer in an AI system?
+4. What is a context window? What happens when it exceeds the limit?
+5. How do you handle long conversations beyond context window limits?
+6. What is a Knowledge Graph? How is it used in AI?
+7. What is the difference between episodic, semantic, and procedural memory in agents?
+8. What tools/frameworks are used for agent memory? (Mem0, Zep, MemGPT)
+
+---
+
+# LLM Output Scores - BLEU, ROUGE, BERTScore
+
+1. What is BLEU score? When is it used?
+2. What is ROUGE score? What are ROUGE-1, ROUGE-2, ROUGE-L?
+3. What is BERTScore? How is it different from BLEU/ROUGE?
+4. What are the limitations of BLEU and ROUGE?
+5. Which metric would you use for summarization vs translation vs QA tasks?
+
+---
+
+# How to Reduce LLM Hallucination
+
+1. What causes hallucination in LLMs?
+2. How does RAG help reduce hallucination?
+3. What is grounding in LLMs?
+4. What is self-consistency prompting?
+5. How do guardrails help reduce hallucination?
+6. What is citation-based generation?
+7. What role does temperature play in hallucination?
+
+---
+
+# LangChain / LangGraph
+
+1. What is LangChain? What problems does it solve?
+2. What are Chains in LangChain?
+3. What is an Agent in LangChain vs a Chain?
+4. What is LangGraph? How is it different from LangChain?
+5. What is a Node in LangGraph?
+6. What is State in LangGraph?
+7. What is conditional routing in LangGraph?
+8. How is memory managed in LangChain/LangGraph?
+9. What are LangChain Tools and ToolKits?
+10. What is LCEL (LangChain Expression Language)?
+
+---
+
+# LLM / SLM Fine-Tuning - LoRA, QLoRA, PEFT, Distillation
+
+1. What is fine-tuning? When should you fine-tune vs use RAG?
+2. What is PEFT (Parameter Efficient Fine-Tuning)?
+3. What is LoRA (Low-Rank Adaptation)? How does it work?
+4. What is QLoRA? How is it different from LoRA?
+5. What is an instruction dataset? How do you prepare one?
+6. What is the difference between SFT (Supervised Fine-Tuning) and RLHF?
+7. What is knowledge distillation? What is Teacher-Student training?
+8. What is catastrophic forgetting?
+9. What is the Alpaca / ShareGPT / FLAN dataset format?
+10. What hyperparameters matter during fine-tuning? (lr, epochs, batch size, rank r)
+
+---
+
+# PyTorch
+
+1. What is a Tensor in PyTorch?
+2. What is autograd in PyTorch?
+3. What is the difference between .detach() and .no_grad()?
+4. What is a DataLoader and Dataset in PyTorch?
+5. How do you define a custom model in PyTorch? (nn.Module)
+6. What is the training loop in PyTorch? (forward, loss, backward, step)
+7. What is the difference between model.train() and model.eval()?
+8. What is GPU acceleration in PyTorch? (.to(device), .cuda())
+9. What is torch.save() and torch.load()?
+
+---
+
+# Core LLM Fundamentals - Transformer, Attention, RLHF, Tokenization
+
+1. What is the Transformer architecture?
+2. What is self-attention? How does it work?
+3. What is multi-head attention?
+4. What is positional encoding?
+5. What is the difference between encoder and decoder in a transformer?
+6. What is tokenization? BPE vs WordPiece vs SentencePiece?
+7. What is RLHF (Reinforcement Learning from Human Feedback)?
+8. What is PPO in the context of RLHF?
+9. What is Flash Attention? Why is it faster?
+10. What is KV Cache? Why is it important?
+11. What is the difference between pre-training, fine-tuning, and alignment?
+
+---
+
+# Prompt Engineering
+
+1. What is prompt engineering?
+2. What is zero-shot, one-shot, few-shot prompting?
+3. What is Chain-of-Thought (CoT) prompting?
+4. What is ReAct prompting?
+5. What is Tree of Thoughts (ToT)?
+6. What is a system prompt vs a user prompt?
+7. What is prompt injection? How do you prevent it?
+8. What is self-consistency prompting?
+9. What is meta-prompting?
+10. What are best practices for writing effective prompts?
+
+---
+
+# MCP (Model Context Protocol)
+
+1. What is MCP (Model Context Protocol)?
+2. What problem does MCP solve?
+3. What are MCP Servers and MCP Clients?
+4. What are Resources, Tools, and Prompts in MCP?
+5. How is MCP different from simple Tool Calling / Function Calling?
+6. What are the transport mechanisms in MCP? (stdio, HTTP/SSE)
+7. How does Claude or any LLM use MCP in an agentic workflow?
+
+---
+
+# Evaluation Metrics
+
+1. What is Precision, Recall, and F1 Score?
+2. What is accuracy vs F1? When to prefer which?
+3. What is AUC-ROC?
+4. What metrics are used for RAG evaluation? (Faithfulness, Relevance, Context Recall)
+5. What is RAGAS? What does it evaluate?
+6. What is LLM-as-a-Judge?
+7. What is mean reciprocal rank (MRR) and NDCG in retrieval?
+8. What is perplexity in LLMs?
+
+---
+
+# MLOps - CI/CD, Versioning, Monitoring, Guardrails, Caching
+
+1. What is MLOps? Why is it important?
+2. What is model versioning? Tools used? (MLflow, DVC)
+3. What is prompt versioning? Why does it matter?
+4. What is A/B testing in ML/LLM context?
+5. What is model drift, Data Drift, Concept? How do you monitor it?
+6. What are guardrails in LLM systems? (Input/Output validation)
+7. What is a CI/CD pipeline for ML models?
+8. What is semantic caching? How does it reduce LLM costs?
+9. What is LangSmith / LangFuse used for?
+10. What tools are used for LLM observability?
+
+---
+
+# Safety and Security
+
+1. What is prompt injection? How do you defend against it?
+2. What is jailbreaking an LLM?
+3. What is PII leakage in LLM systems? How do you prevent it?
+4. What are guardrails? Give examples. (NeMo Guardrails, Llama Guard)
+5. What is content moderation in LLM pipelines?
+6. What is the OWASP Top 10 for LLMs?
+7. What is data poisoning in the context of LLM training?
+8. How do you handle sensitive data in a RAG pipeline?
+
+---
+
+# Performance Optimization - Tokens, Streaming, Batching, Semantic Cache
+
+1. What is token optimization? Why does it matter?
+2. How do you reduce the number of tokens in prompts?
+3. What is streaming in LLM APIs? How does it improve UX?
+4. What is batching in LLM inference?
+5. What is quantization? (INT8, INT4) How does it help performance?
+6. What is semantic caching? How is it different from traditional caching?
+7. What is speculative decoding?
+8. What is vLLM? What problem does it solve?
+9. What is PagedAttention?
+
+---
+
+# System Design for AI Systems
+
+1. How would you design a Document Q&A system?
+2. How would you design a chatbot with short and long-term memory?
+3. How would you design a multi-agent workflow for a customer support system?
+4. How would you handle context window overflow in a long conversation?
+5. What are the tradeoffs between RAG vs Fine-Tuning?
+6. How do you scale an LLM-based application?
+7. What is self-reflection / self-correction in agentic systems?
+8. How do you design a fallback mechanism when an LLM fails or hallucinates?
+9. What is the difference between stateful and stateless agents?
+10. How would you architect a production-ready RAG pipeline?
