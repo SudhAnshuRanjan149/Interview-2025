@@ -1,0 +1,150 @@
+🔍 FIRST — COMPANY INSIGHT (FusionAIX)
+
+Key facts (from available data):
+
+- Founded: 2023 (startup-stage, fast growing) :contentReference[oaicite:1]{index=1}  
+- Domain: AI + Low-code + Digital transformation :contentReference[oaicite:2]{index=2}  
+- Focus Areas:
+  - LLM / AI solutions
+  - Pega / Power Platform
+  - Workflow automation
+  - Enterprise applications :contentReference[oaicite:3]{index=3}  
+- Culture:
+  - Strong on innovation, learning, collaboration :contentReference[oaicite:4]{index=4}  
+  - Fast-paced, startup-like environment :contentReference[oaicite:5]{index=5}  
+
+📌 Interview Insight:
+- No strong public interview question bank found (company is new)
+- But JD + job postings clearly show:
+  👉 Heavy focus on **LLM engineering + backend systems + production AI**
+
+------------------------------------------------------------
+
+🎯 MOST IMPORTANT INTERVIEW TOPICS (VERY HIGH PROBABILITY)
+
+1. LLM + RAG systems (core)
+2. Agentic AI / multi-agent orchestration
+3. Python backend (FastAPI)
+4. Microservices + system design
+5. Prompt engineering
+6. Vector DB + embeddings
+7. Performance optimization (latency, cost)
+8. Testing (LLM + backend)
+9. Cloud (Azure preferred)
+10. API design + scalability
+
+👉 This is NOT a data science role  
+👉 This is **AI SYSTEMS ENGINEER / GENAI BACKEND ENGINEER**
+
+------------------------------------------------------------
+
+🔥 TOP 50 INTERVIEW QUESTIONS (HIGHLY CURATED)
+
+------------------------------------------------------------
+🧠 SECTION 1 — LLM / GENAI (VERY IMPORTANT)
+------------------------------------------------------------
+
+1. What is a Large Language Model (LLM)?
+2. Explain how GPT works internally.
+3. What are tokens and how do they affect cost?
+4. What is temperature and top_p?
+5. What is prompt engineering? Give examples.
+6. What are few-shot vs zero-shot prompts?
+7. What is hallucination in LLMs?
+8. How do you reduce hallucination?
+9. What are guardrails in LLM systems?
+10. How do you evaluate LLM outputs?
+
+------------------------------------------------------------
+📚 SECTION 2 — RAG (CRITICAL FOR THIS ROLE)
+------------------------------------------------------------
+
+11. What is RAG architecture?
+12. Explain embedding → retrieval → generation pipeline.
+13. What is chunking? Best practices?
+14. What is vector database?
+15. Difference between FAISS, Pinecone, Weaviate?
+16. What is cosine similarity?
+17. How do you improve retrieval quality?
+18. What is re-ranking?
+19. How do you handle large documents in RAG?
+20. How do you cache RAG results?
+
+------------------------------------------------------------
+🤖 SECTION 3 — AGENTIC AI (VERY HIGH PRIORITY)
+------------------------------------------------------------
+
+21. What is an AI agent?
+22. Difference between LLM and agent?
+23. What is tool/function calling?
+24. Explain multi-agent systems.
+25. How do agents communicate?
+26. What is orchestration vs choreography?
+27. How do you design agent workflows?
+28. What are retry/fallback strategies?
+29. How do you maintain state in agents?
+30. What frameworks have you used (LangChain, CrewAI, etc)?
+
+------------------------------------------------------------
+🐍 SECTION 4 — PYTHON + BACKEND
+------------------------------------------------------------
+
+31. Why FastAPI over Flask/Django?
+32. How do you design REST APIs?
+33. What is async programming in Python?
+34. What is Pydantic?
+35. How do you validate API inputs/outputs?
+36. How do you handle errors in APIs?
+
+------------------------------------------------------------
+🏗️ SECTION 5 — SYSTEM DESIGN (VERY IMPORTANT)
+------------------------------------------------------------
+
+37. Design a scalable AI assistant system.
+38. How would you build ChatGPT-like system?
+39. How do you scale microservices?
+40. How do you manage rate limits?
+41. How do you design caching for LLM calls?
+42. How do you reduce inference latency?
+
+------------------------------------------------------------
+⚡ SECTION 6 — PERFORMANCE & OPTIMIZATION
+------------------------------------------------------------
+
+43. How do you measure latency in LLM apps?
+44. GPU vs CPU inference — when to use?
+45. What is batching?
+46. How to reduce token cost?
+47. How to optimize memory usage?
+
+------------------------------------------------------------
+🧪 SECTION 7 — TESTING & DEBUGGING
+------------------------------------------------------------
+
+48. How do you test LLM systems?
+49. What are unit vs integration tests in AI systems?
+50. How do you debug hallucination or wrong outputs?
+
+------------------------------------------------------------
+
+💡 BONUS (OFTEN ASKED IN THIS COMPANY TYPE)
+
+- Explain a real project (end-to-end AI system)
+- Tradeoffs: RAG vs fine-tuning
+- Explain failure cases in production AI
+- Security concerns in AI apps
+- Logging & observability (OpenTelemetry)
+
+------------------------------------------------------------
+
+🚨 FINAL STRATEGY (VERY IMPORTANT)
+
+If you prepare only ONE thing, prepare this:
+
+👉 “Design an AI assistant using RAG + Agents + FastAPI + Vector DB”
+
+Because:
+- Covers 70% of interview
+- Matches exactly what they build :contentReference[oaicite:6]{index=6}  
+
+------------------------------------------------------------

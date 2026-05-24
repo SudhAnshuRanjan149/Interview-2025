@@ -1,0 +1,97 @@
+--------------------------------------------------
+🔴 HIGH PRIORITY (Core Role Requirements)
+--------------------------------------------------
+
+1. Agentic AI / Multi-Agent Systems  
+   - Experience: 3+ years (within AI/GenAI work)  
+   - Notes: Central to role (workflow automation, agent design)
+
+2. Python (Microservices + AI Systems)  
+   - Experience: 4–5+ years  
+   - Notes: Primary development language
+
+3. LLM / RAG / AI Assistants Development  
+   - Experience: 3+ years  
+   - Notes: Includes prompt engineering, retrieval pipelines
+
+4. Prompt Engineering  
+   - Experience: 2–3+ years  
+   - Notes: Critical for AI agent performance
+
+5. Cloud Platforms (Azure / AWS / GCP)  
+   - Experience: 3+ years  
+   - Notes: Cloud-native AI/ML systems required
+
+6. Microservices Architecture  
+   - Experience: 3–5+ years  
+   - Notes: Scalable system design expectation
+
+7. Performance Optimization (Latency, GPU/CPU, Memory)  
+   - Experience: 2–3+ years  
+   - Notes: Strong systems-level understanding needed
+
+--------------------------------------------------
+🟠 MEDIUM PRIORITY (Important Supporting Skills)
+--------------------------------------------------
+
+8. Workflow Automation / Process Redesign  
+   - Experience: 2–4 years  
+   - Notes: Business + technical alignment
+
+9. Testing (Unit + Integration Testing)  
+   - Experience: 3–5 years  
+   - Notes: Quality & reliability focus
+
+10. Debugging & Performance Tuning  
+    - Experience: 3–5 years  
+    - Notes: Production-grade systems
+
+11. Caching Strategies  
+    - Experience: 2–3 years  
+    - Notes: Optimization of AI pipelines
+
+12. Documentation (Technical + System Design)  
+    - Experience: 2–4 years  
+    - Notes: Leadership responsibility
+
+13. Security Patching & Bug Fixing  
+    - Experience: 2–4 years  
+    - Notes: Production maintenance
+
+--------------------------------------------------
+🟡 COLLABORATION / LEADERSHIP SKILLS
+--------------------------------------------------
+
+14. Agile / Scrum / Product Delivery  
+    - Experience: 3+ years  
+    - Notes: Backlog, sprint, E2E delivery
+
+15. Cross-functional Team Leadership  
+    - Experience: 2–4 years  
+    - Notes: Leading engineers, stakeholder alignment
+
+16. Enterprise Architecture / Data Governance / Security  
+    - Experience: 2–4 years  
+    - Notes: Enterprise-level exposure
+
+--------------------------------------------------
+🟢 NICE-TO-HAVE / DOMAIN EXPOSURE
+--------------------------------------------------
+
+17. CRM / Sales Platforms (Salesforce, CPQ, Service Cloud, Salesloft)  
+    - Experience: 1–3 years  
+    - Notes: Domain-specific, not core
+
+18. GenAI Tools (e.g., ChatGPT or similar platforms)  
+    - Experience: 1–2 years  
+    - Notes: General familiarity expected
+
+--------------------------------------------------
+📊 OVERALL EXPERIENCE SUMMARY
+--------------------------------------------------
+
+- Total Experience Required: 4–6+ years  
+- Core AI/GenAI Experience: 3+ years  
+- Strong Backend + Cloud Foundation: Mandatory  
+
+--------------------------------------------------

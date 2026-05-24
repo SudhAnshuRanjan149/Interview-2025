@@ -1,0 +1,9 @@
+rules:
+  - name: web_search
+    match_keywords: ["search","look up","find","who","what","where","when"]
+    route: web_fetcher
+  - name: doc_search
+    match_keywords: ["document","pdf","paper","report","invoice","manual"]
+    route: rag_retriever
+  - name: default
+    route: model_agent

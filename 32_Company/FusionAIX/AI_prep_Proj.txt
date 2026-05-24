@@ -1,0 +1,145 @@
+
+
+
+1. Agentic AI
+
+In my recent project, I built an AI-powered vehicle assistant system using a multi-agent architecture with LangGraph. The idea was to handle different types of user requests in a smart and efficient way, even when there are challenges like limited hardware or no internet connectivity. I designed an orchestrator agent that acts like the brain of the system — it understands the user query and routes it to the right agent. For example, a local agent runs on a lightweight model (Phi 3.5 via Ollama) and handles offline queries using a RAG setup with vector databases like ChromaDB and LanceDB. A cloud agent uses a more powerful model (like GPT-4o) to fetch real-time information such as weather, navigation, or nearby places. I also built a CAN agent that directly communicates with the vehicle using the Kvaser CAN library, enabling actions like checking fuel status or controlling vehicle functions.
+
+
+To make the system more interactive, I added voice input using OpenAI Whisper for speech-to-text and implemented hotword detection using Azure Speech SDK so the assistant can be triggered naturally. I also integrated tool calling using an MCP server (FastMCP) to allow agents to perform real-world actions like sending CAN messages or calling external APIs. Additionally, I handled network limitations by introducing a Celery queue system — if the internet is unavailable, requests are queued and processed once connectivity is restored. Overall, the system was deployed on an edge NVIDIA device, making it efficient, responsive, and capable of working in real-world driving conditions.
+
+
+a. ADAS AI Assistant System - Multi Agent Architecture
+b. Tech Stack - LangGraph, RAG (Vector DB - Lance DB), Azure Speech SDK (Hotword detection), Whisper Model(Speech-to-text) , MCP,  Python
+
+---------------------
+
+
+2. Phi3.5 Vision Instruc Model
+
+In another project, I worked on fine-tuning a vision-language model, specifically the Phi 3.5 Vision Instruct model, for detecting anomalies from vehicle front camera images. The main challenge was to build an accurate model while working under hardware constraints, as full-scale fine-tuning typically requires very high GPU memory. To solve this, I used parameter-efficient techniques like LoRA and QLoRA, which allowed me to fine-tune the model on a 40GB NVIDIA A100 GPU instead of needing much larger resources. I followed a teacher-student approach, where a stronger model like GPT-4o was used to generate high-quality annotations such as image descriptions, classifications, and severity levels, which were then used to train the smaller model.
+
+For the training pipeline, I used Hugging Face Transformers, PyTorch, and custom data collators to handle the multimodal dataset. The dataset included fields like image path, description, classification, and severity. I handled preprocessing, batching (with batch size of 1 due to memory limits), and hyperparameter tuning during training. After training, I evaluated the model using metrics like BLEU, ROUGE, and BERTScore to ensure good performance on both understanding and generation tasks. This project helped me build an efficient, domain-specific model that can run on edge systems and assist in real-time vehicle safety use cases.
+
+
+---------------------
+
+
+3. Yolo v11
+
+I also worked on fine-tuning a YOLO v11 model for object detection in vehicle-related scenarios. The goal was to accurately detect and identify important objects from camera input, such as obstacles, pedestrians, or road-related elements. I used a custom dataset specific to the use case and performed data preprocessing and annotation to ensure good quality training data. Then, I fine-tuned the YOLO v11 model by adjusting hyperparameters like learning rate, batch size, and number of epochs to improve detection accuracy for our domain.
+
+After training, I deployed the model using Flask and Docker, making it easy to run as an API service. This allowed the system to take image input and return detected objects in real time, which can be integrated with other systems like the ADAS assistant. The focus of this project was to build a fast and efficient object detection pipeline that works reliably in real-world conditions and can be easily deployed and scaled.
+
+
+------------------------------------------
+
+
+
+
+
+1. Agentic AI ADAS Assistant System
+
+Yes, I’ve built a **multi-agent system using LangGraph** for an ADAS assistant.
+
+**Problem:**
+
+Provide real-time vehicle interaction with constraints like intermittent network and hardware limits.
+
+**Solution Architecture:**
+
+* Orchestrator agent → routes queries
+* CAN agent → executes vehicle commands via tools
+* Local agent → handles offline queries using lightweight LLM (Ollama)
+* Cloud agent → handles external APIs (weather, news)
+
+**Key Features:**
+
+* Voice input using Whisper + hotword detection
+* Tool calling via MCP server (CAN sender/receiver)
+* RAG for user context
+
+
+Built a multi-agent orchestration system using LangGraph:
+
+* Voice input → STT → Orchestrator Agent
+* Routed to:
+* Local Agent (offline support)
+* Cloud Agent (real-time data)
+* CAN Agent (vehicle commands)
+* Used vector DB (ChromaDB → LanceDB)
+* MCP server for tool integration
+* Deployed on edge NVIDIA system
+
+
+
+
+
+
+**1. Multimodal Fine-tuning Project:**
+
+I fine-tuned a Small Language Model (SLM), specifically a vision-language model, for ADAS use cases. The goal was to detect anomalies from vehicle camera images under resource constraints.
+
+* Used teacher-student approach
+* Teacher: GPT-based model
+* Student: Phi 3.5 Vision instruct model
+* Using Techniques: LoRA / QLoRA
+* Result: Improved performance on domain-specific dataset
+
+1. in Documentation it was mentioned that it will need atlead 80 gb GPU for full scale finetuning, but then i got to learn about the LoRA and QLoRA techniques, with which we were able to finetune this within the 
+
+
+
+
+Gen AI and Agentic AI Projects
+
+1. Multi Orchectrator AI Agent for ADAS Assistance System
+
+Tech Stack: LangGraph, Python, OLLAMA(Model: Phi 3.5 - 2.5gb, Parameter Count - ?), RAG (LanceDB, ChromaDB), MCP(FastMCP), Tool Calling (Without MCP for POC), Open AI Whishper Model, HotWord Detection(Azure Custom Keyword Model run on Azure Speech SDK), Celery Queue
+
+a. 4 Agent Nodes: 
+    1. Orchestrator Agent (Model: Phi 3.5 local Model) : Route the query to the required agent based on the local model reasoning (LangGraph conditional routing), RAG: User Profile Information, Previous Chat (shoud go in RAG, Short Term Memory or Long Term Memory ?? and if RAG , what chunking mechanism used ??)
+
+    2. Local Agent (Model: Phi 3.5 Local Model) : Serves the user Query for the simple queries from RAG database and also is usefull if internet is not available during the journey(if internet not available and if any important query come from user which needs internet connection, then it wlll pass it to the queue) and once internet is available, agent will provide the response to the user(Celery Queue).
+
+    3. Cloud Agent (Model: GPT 4o) : Serves the user for user queries for realtime information such that weather details, routes, hotel availability, nearest petrol pump etc. Tool calling ability using FastMCP library in Python.
+
+    4. CAN Agent (Model: Phi 3.5 Local Model) : CAN Agent node to communicate with the vehicle using Kavasar canlib library, Integrated to MCP tool to send/receive messages to/from the vechicle ,Find the vechicle realtime information like fuel indication, ac on/off, control the vehicle devices. 
+    
+    Example 1: 
+    User: "Hey CAR, Start the drive to my Home Location."
+    Agent: "Query -> Orchestrator Agent -> (routes the query to the CAN Agent) -> CAN Agent -> Reason and Decide the Message ID to pass to the vehicle for vechile command and GPS location coordinate(fetch the home location of user from the RAG DB) -> (Tool Calling: CAN transmit tool) -> Ask for User Acknoledgement and then if user say yes, it will send the message and journey begins"
+
+    Example 2: 
+    User: "Hey CAR, Tell me the"
+
+    Example 3: 
+    User : "Hey Car, Tell the Weather condition at my destination"
+    Agent: "Fetch the Destionation from RAG, and fetch the information using weather api"
+
+
+2. Phi 3.5 vision instruct model fine tuning for Anomoly Detection from the Front Camera images of the vehicle
+
+Tech Stack: Model Phi 3.5 Vision Instruct, Huggingface Transformer library, Pytorch, Python, Lora/QLora(Parameter Efficient Fine Tuning techniques), GPU - 40 GB Memory(Nvidea DGX A-100)
+
+    a. Data Set Creation - Teacher Student Model(Distillation Technique) - Teacher(GPT 4o). and Student(Phi 3.5 vision instruct)
+    b. Columns - 
+    {
+        "Image Path": "", 
+        {
+            "Image Description": "", 
+            "Classification": "", 
+            "Severity": ""
+        }
+    }
+
+    c. Steps: 
+        1. Save Base Model Weights (Huggingface Auto Pretrained function)
+        2. Data Collator Class
+        3. Train Function with hyper parameters tuning (Epochs, Batch Size, ...etc)
+        4. Batch Size support: 1
+        5. Traning and Validation(Scores: Bleu, Rouge, Bert Score)
+
+3. Finetuned Yolo v11 model
+4. Deployed Yolo v11 model using Flask and Docker
+

@@ -1,0 +1,32 @@
+1. How to you decide you have to do Full Re-Training or FineTuning?
+2. Traditional ML Techniques?
+3. How to Evaluate model output for accuracy?
+4. What is Quantization?
+5. What is Tokenization and how it is done?
+6. How to Evaluate accuracy for RAG (Retrival from Vector DB)?
+7. What could be the size of data size for finetuning 4b parameter model? How do we decide the size of data required for finetuning?
+8. How to evaluate if finetuning done correclty or not?
+9. How fine-tuning a multi modal model different from one single modal model?
+10. When to use RAG and when to do fine-tuning or full traning/re-traning of model?
+11. How Traditonal ML, AI and LLM different?
+12. What is Transformer?
+13. What is Embedding and how it is done?
+14. What is Vectorization and different vectorization techniques?
+15. What is a Token?
+16. What is LlamaIndex, Semantic Kernel, AutoGen, CrewAI?
+17. How to debug and do Logging for errors in multi agent system?
+18. When to use LangChain and when to use LangGraph?
+19. What is Semantic similarity, Cosine similarity, Euclidean Distance?
+20. What are RAG retrival techniques?
+21. Raagas, Presion, Recall?
+22. How to handle errors if agents is not proving the correct output, or tool/api calling is unsuccessfull?
+23. How to create retries mechanism in multi-agent system?
+24. How to manage such situation where user is alternativly changing the context in multi agent system, how to handle state their?
+25. what is embedding dimensions, how to choose this?
+26. how to choose chunk size?
+27. When to use Graph RAG?
+28. What is Cross-Encoder and Bi-Encoder?
+
+
+
+

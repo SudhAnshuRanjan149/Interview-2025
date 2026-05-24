@@ -1,0 +1,11 @@
+pdfplumber
+sentence-transformers
+numpy
+requests
+beautifulsoup4
+lance
+langgraph
+fastmcp
+ollama
+scikit-learn
+pytest

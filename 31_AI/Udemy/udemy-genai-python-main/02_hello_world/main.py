@@ -10,6 +10,6 @@ response = client.chat.completions.create(
     messages=[
         { "role": "user", "content": "Hey, I am Piyush Garg! Nice to meet you"}
     ]
-)
+)   
 
 print(response.choices[0].message.content)

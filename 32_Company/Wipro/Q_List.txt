@@ -1,0 +1,8 @@
+Role - Gen AI + Agentic AI 
+
+1. Flatten an Multi dimensional List in Python?
+2. What is MRO in Python - Method Order Resolution?
+3. How the memory management works in python?
+
+4. Explain the RAG Pipeline?
+5. Explain the Projects you have done?
