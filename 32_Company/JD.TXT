@@ -1,0 +1,247 @@
+FUSIONAIX - 32 LPA BANGLORE - (CLIENT - CARGILL) - 3 DAYS WFO
+
+Design & Build/Development & Support
+Develop multi-agent workflow automation patterns using Agentic AI
+Process redesign and mapping to agentic workflow patterns
+Architect scalable micro-services that wrap LLM/RAG/Agent workflows (Python).
+Implement robust prompt-engineering patterns, retrieval pipelines, and caching for AI Assistants and AI Agents
+Profile inference latency, GPU/CPU utilization, and memory
+Writes and maintains highly complex unit tests and integration tests, and performs debugging to maintain the quality and performance of the software/AI solutions
+Lead bug-fix, security-patch, and performance-tuning sprints for live AI Assistants and AI Agents
+Leads the establishment and maintenance of comprehensive documentation for agents, applications, deployment processes and system configurations.
+ 
+
+Collaboration & Leadership
+Leads cross functional team of engineers to gather requirements and deliver solutions that meet business needs.
+Experience working within product and agile delivery frameworks including backlog management and cross-functionality delivery and full E2E engineering.
+Experience with enterprise architecture, data governance, or security standards in the context of digital solution delivery as part of E2E engineering and solution architecture.
+Capability & Technology Stack Exposure
+Experience with digital technologies in the commercial & sales management capability (e.g. Salesforce, Service Cloud, CPQ, Sales loft, ChatGPT or similar platforms) 
+ 
+
+MINIMUM & TYPICAL YEARS OF WORK EXPERIENCE
+
+Minimum requirement of 4 years of relevant work experience. Typically reflects 5 years or more of relevant experience.
+Typically reflects 4 years or more with 3+ years of cloud-native AI/ML or GenAI systems (Azure, AWS, or GCP)
+
+
+-----------------
+
+Synechron - 30 lpa - Banglore - 3 days wfo - (client - carelon)
+
+
+Role Overview
+We are looking for a Platform Engineer with expertise in AI/ML platform development, microservices architecture,
+and cloud deployment. The role focuses on building scalable AI/ML applications, optimizing inference
+performance, and deploying containerized solutions on AWS and Kubernetes.
+Key Responsibilities
+• Build and deploy AI/ML applications and scalable microservices platforms
+• Develop REST and gRPC APIs using Python and FastAPI
+• Containerize applications using Docker and deploy them on Kubernetes/EKS
+• Work on event-driven systems using Kafka and RabbitMQ
+• Optimize LLM inference performance, caching, and deployment costs
+• Develop and maintain RAG pipelines using vector databases like Qdrant and ChromaDB
+• Implement observability, logging, and monitoring solutions
+• Ensure secure handling of PII/PHI data with authentication and RBAC
+• Collaborate with cross-functional teams to improve scalability and reliability
+Required Skills
+• Strong Python expertise with FastAPI, REST, gRPC, and microservices
+• Hands-on experience with Docker, Kubernetes, Helm, and AWS services
+• Experience with Kafka or RabbitMQ for event-driven architecture
+• Knowledge of Hugging Face Transformers and LangChain frameworks
+• Experience with RAG pipelines and vector databases like Qdrant or ChromaDB
+• Hands-on experience with MLflow, Airflow, PyTorch, or TensorFlow
+• Understanding of observability, monitoring, and production support
+• Knowledge of SQL and NoSQL databases including MongoDB, DocDB, and Snowflake
+
+
+
+--------------------------
+
+
+Atlas Copco - 22 lpa - Pune, 5days office
+
+Your Role
+The GenAl Lighthouse is seeking a talented and innovative GenAl Developer to design, develop, implement
+and support GenAl platforms, solutions and systems from scratch, as well as integrate GenAl technology into
+existing platforms and applications, all in a secure and stable way.
+This highly technical role will, at first, mainly be focused on enhancing the platform capabilities of Al Brains.
+The developer will be responsible for continuously adding new features and upgrading existing functionalities
+in line with market releases, including new LLMs, integration and deployment functionalities and interactions
+with for example structured data, images, video and voice.
+Main responsibilities:
+« Design, develop, implement and support GenAl platforms, solutions and systems from scratch and integrate
+GenAl technology into existing platforms and applications securely and stably.
+« Enhance the platform capabilities of Al Brains: implement new LLMs, provide integration and deployment
+functionalities, enable interactions with structured data, images, video and voice.
+« Develop in line with best practices, internal (e.g. privacy and security) as well as external policies and
+legislation (e.g. EU Al Act). Keep performance, scalability and reliability on top of mind.
+« Write and maintain documentation for GenAl solutions, including technical specifications, user guides and
+best practices.
+Work closely with cross-functional teams and stakeholders to understand requirements and identify
+opportunities for GenAl Solutions, as well as to ensure successful deployments.
+« Stay updated on the latest advancements in GenAl technology and contribute to the research and
+development of new Al-based solutions.
+« Research, analyze and evaluate the best off-the-shelf GenAl solutions and review with relevant
+stakeholders to determine the best fit for our business needs.
+To succeed, you will need
+The GenAl Developer will work closely with cross-functional teams and the Al Brains Product Owner to
+understand requirements, develop GenAl-based systems, and ensure seamless integration with existing
+technology infrastructure.
+Additionally, the candidate will scout the market for the best off-the-shelf GenAl solutions, evaluate different
+technology platforms, and identify the most effective and efficient ways to incorporate them into our systems.
+This includes researching and analyzing free and paid solutions to determine the best fit for our needs.
+The ideal candidate must have strong knowledge of MEAN, Azure (Al), Al and GenAl, DevOps, Python and
+Jira. Additionally, proficiency in other relevant technologies and frameworks, excellent problem-solving skills
+and the ability to work in a dynamic environment are essential for success in this role. 
+
+Required skills are as follows:
+https://performancemanagerS.successfactors.eu/xi/uilrcmcommon/pages/jobReqPrintPreview.xhtmi?drawButtons=true&joblD=1545898isExternal=true... 1/2
+712125, 4:03 PM Job Description Print Preview
+« You have proven experience with MEAN stack: developing and owning applications from intake to delivery
+and support.
+« DevOps an Git do not have any secrets for you.
+You know the ins and outs of Al and GenAl, and can perform the different steps of the data science process:
+from data extraction over model building to deployment and monitoring has no secrets for you.
+You know the Azure cloud stack, especially Azure Al.
+« You know your way around in Python, React and SQL.
+« You communicate fluently in English.
+« You are not shy to challenge the governance processes and try to improve the current way of working.
+Preferably, you also have:
+Knowledge about the Azure Bot Framework Composer.
+Experience with digital signal processing (of voice, images, video).
+Experience with the following tools/technologies/frameworks: Jira, Agile, Scrum, Confluence. 
+
+
+
+---------------------------
+
+Quorum - Pune - 17 LPA - 2 days wfo
+
+As a Software Engineer in the engineering team, you will deliver end-to-end features across the full stack from React frontends through event-driven Node.js microservices to infrastructure-as-code.
+
+This is beyond a pure front-end or back-end role. You will own features from UI through Kafka event flow to Kubernetes deployment, working within domain-driven service boundaries alongside architects and domain experts. You will ship production code frequently, write tests that matter, and operate what you build.
+
+What You Will Do:
+
+Build and ship end-to-end features across React frontends and TypeScript/Node.js microservices, owning the full path from user interaction through API, event propagation, and data persistence
+Design and implement backend microservices in TypeScript on Node.js, following domain-driven design boundaries.
+Build responsive, data-rich frontend interfaces in React using TypeScript
+Develop and consume RESTful APIs (OpenAPI 3.0) in an event-driven architecture using Apache Kafka for asynchronous domain event propagation
+Implement and maintain PostgreSQL schemas, queries, and migrations for dedicated per-service databases
+Write comprehensive unit tests, integration tests, E2E tests for critical paths, and API contract tests
+Contribute to CI/CD pipeline quality — builds, lint, SAST scans, integration tests, and deployment.
+Collaborate with the integration team on connectors to external systems.
+Work within an agile delivery model with two-week sprints, daily standups, and structured demo/retro cadences
+And other duties as assigned.
+What to Bring:
+
+4+ years of professional software development experience
+Strong proficiency in TypeScript and modern JavaScript (ES2020+), with hands-on Node.js backend experience
+Experience building frontend applications with React (functional components, hooks, state management)
+Proficient in AI-assisted development workflows using tools such as Claude Code, Cursor, or similar AI coding agents as part of the daily development cycle, from code generation and review through testing and documentation 
+Solid understanding of relational databases, particularly PostgreSQL (schema design, indexing, query optimisation, migrations)
+Experience designing and consuming RESTful APIs; familiarity with OpenAPI / Swagger specifications
+Comfortable with Git workflows (feature branches, pull requests, rebasing) and CI/CD pipelines
+Understanding of containerisation with Docker and basic Kubernetes concepts (pods, services, deployments)
+Strong testing discipline — unit, integration, and end-to-end testing with frameworks such as Jest, Playwright, or Cypress
+Effective communicator who thrives in cross-functional, geographically distributed teams
+
+
+---------------------------
+
+IndexNine - 20 lpa - Pune - 5 days wfo
+
+Job Title: Sr. AI Native Software Engineer
+Location: Pune
+Employment Type: Full-Time
+Experience Level: 3-5 Years
+About the Role:
+We are looking for AI Native Engineers who can build applications using AI and full-stack technologies, leveraging
+modern tools like Copilots, Agents, and LLMs to deliver production-ready solutions.
+You will work in an environment where:
+- Code is co-created with AI
+- Specs are translated into working systems using AI tools
+- Speed, quality, and product thinking matter equally
+
+What You’ll Do
+- Build and scale AI-native applications from prototype to production
+- Translate PRDs into working systems using AI-assisted development
+- Design and develop full-stack solutions (frontend, backend, APIs)
+- Integrate LLMs, RAG pipelines, and embeddings into real-world use cases
+- Leverage AI tools (Copilot, Cursor, Claude) to accelerate development
+- Optimize performance, cost, and reliability
+Tech Stack / Base Skills :
+
+Programming & Backend:
+- Python (preferred), Node.js / JavaScript
+- Experience building APIs (REST/GraphQL)
+Frontend:
+- React or similar frameworks
+- Basic UI/API integration understanding
+AI / LLMs:
+- LLM APIs (OpenAI, Anthropic)
+- Prompt engineering basics
+- RAG and embeddings exposure
+- (Nice to have) Interaction with agents & agentic workflow
+Tools:
+- Copilot, Cursor, Claude
+- (Nice to have) LangChain, LlamaIndex
+Cloud:
+- AWS / GCP / Azure basics
+- Deployment and debugging awareness
+Core Skills
+- Product thinking and user-focused development
+- AI-assisted development workflow
+- Strong full-stack fundamentals
+- LLM integration and debugging
+- AI workflows and automation understanding
+- Performance, cost, and reliability awareness
+Experience Bands (3–6 Years):
+- Build end-to-end features independently
+- Work on RAG and AI workflows in production
+- Improve system performance and reliability
+
+Nice to Have :
+- Experience working with agent-based systems and agentic workflows
+- Built copilots, internal tools, or automation-driven applications using AI
+- Exposure to fast-paced product or startup environments
+- Experience in building benchmarking frameworks for LLMs (A/B testing, offline and end-to-end evaluation) to
+measure quality, latency, and cost trade-offs
+- Understanding of LLM proxy patterns including routing, caching, safety filters, and rate limiting across multiple
+models/vendors
+- Experience with monitoring and observability for AI systems, including tracking latency, errors, hallucination
+signals, and cost per usage
+
+
+----------------------
+
+Bajaj Finserve - 4 days - wfo - hybrid - Pune - 23.5 lpa(include 1 lakh joingin bonus + 4.5 lakh as bonus)
+
+
+Job Purpose	
+We are seeking a dynamic AI Engineer to join our pioneering Agentic AI team. The ideal candidate will possess a strong foundation in delivering projects on both SaaS & PaaS based platforms, Prompt Engineering, UI development and development of APIs. You will be involved in end-to-end stage of development life cycle.
+Duties and Responsibilities	
+Deliveries with respect to Agentic AI Platform: · Build and maintain autonomous software agents using state-of-the-art LLM frameworks. · Collaborate with product owners and domain experts to build reusable components for business process automation. · Develop core infrastructure and reusable components to support the deployment of agent-based AI systems. · Work on agent orchestration, prompt engineering, and LLM-powered integrations. · Implement scalable solutions integrated with CRM systems and enterprise data platforms. · Contribute to the design of modular, extensible, enterprise-grade architecture. · Fine-tune and evaluate AI agents for speed, accuracy, performance and maintainability across business units. · Contribute to CI/CD automation and maintain operational stability of agent services. Generative AI & Model Optimization: · Writing and Optimizing Prompts · Fine-tune LLMs/SLMs with proprietary NBFC data. · Perform distillation, quantization of LLMs for edge deployment. · Evaluate and run LLM/SLM models on local/edge server machines. Self-Learning Frameworks: · Build self-learning systems that adapt without full retraining (e.g., learn new rejection patterns from calls). · Implement lightweight local models to enable real-time learning on the edge.
+Key Decisions / Dimensions	
+Platform Design & Delivery, Model Selection, Customization (if any) & Testing: · Choosing the right model for various agentic and autonomous actions. · Selecting appropriate model so that Agents can complete the autonomous tasks in efficient manner. · Defining reusable components in the platform. Delivery using configuration approach should be first preference, in case that does not work should go for customization. · Defining configuration parameters and incorporate them as platform design. · Testing and end to end testing of the project deliverable. · Load balancing between different models. · Always have switch on/switch off feature. · Must have all services backed up on primary/HA & DR servers. Prompt Engineering: · Prompt Design & Development: Crafting prompts that guide AI systems to produce desired outputs for various applications, such as text generation, translation, question answering, and creative writing.
+
+· Testing and Evaluation: Analysing the effectiveness of prompts and refining them based on results to ensure accurate and relevant responses. · Bias Mitigation: Designing prompts that minimize bias and ensure fair and equitable outcomes from AI systems.
+Major Challenges	
+Support from other platform owners · Agents must learn from failed interactions · Building a Agents that doesn't just answer but negotiates with human-like reasoning. · Running large AI models in low-latency, low-bandwidth environments without cloud dependency. · Getting the end-to-end domain knowledge Managing data and information security of the agentic application.
+Required Qualifications and Experience	
+a) Qualifications · Bachelor’s or Master’s degree in Computer Science, Engineering, or a related field. · Experience: 2–4 years of experience in AI/ML, with exposure to Python/Java, Node.JS, JavaScript.
+
+b) Work Experience
+
+· Strong understanding of prompt engineering, tool calling, and agent orchestration.
+
+· Good understanding of Microsoft Foundry + MS CoPilot Studio/ Agentforce or Equivalent.
+
+· Strong programming skills in languages such as Python, Node.JS, JavaScript, React, Java, Postgres.
+
+· Familiarity with LangChain, Semantic Kernel, CrewAI, or LangGraph.
+
+· Understanding of Microsoft Copilot Studio, Power Automate, and Power BI
+
+· Familiarity with the Agent Development Kit (ADK) and protocols like MCP & A2A
