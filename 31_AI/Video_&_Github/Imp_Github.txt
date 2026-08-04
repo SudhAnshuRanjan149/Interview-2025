@@ -1,0 +1,9 @@
+
+Date - 4 Aug 2026
+Shared by - Priya 
+
+1. https://github.com/DeepakDeorari/k8s-vllm-rag-ai-observability/blob/main/applications/rag-app/main.py
+
+2. https://github.com/neural-maze/production-ocr-course
+
+
