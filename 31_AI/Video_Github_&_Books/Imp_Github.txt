@@ -1,0 +1,26 @@
+
+Date - 4 Aug 2026
+Shared by - Priya 
+
+1. https://github.com/DeepakDeorari/k8s-vllm-rag-ai-observability/blob/main/applications/rag-app/main.py
+
+2. https://github.com/neural-maze/production-ocr-course
+
+3. https://github.com/azam123/awesome-ai-engineer/blob/main/production-genai-agentic-ai-guide.md
+
+4. https://youtu.be/p3sij8QzONQ?si=YSs0WzIaTo-UrPZ_
+
+Nvidia test questions:
+5. https://share.gemini.google/jicOOxOUL2kB
+
+6. https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/overview
+
+7. https://youtu.be/6YnLB0XbTnI?si=NbWzojBnk-h8emNq
+
+8. https://medium.com/@shayanBemanian/guide-to-gpu-requirements-for-inference-of-llms-d2e52f1d7e6d
+
+Open worker by Andrew ng (open source )
+9. https://github.com/andrewyng/openworker
+
+
+
