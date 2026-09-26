@@ -1,0 +1,289 @@
+networks:
+  public-net:
+  internal-net:
+
+volumes:
+  postgres-data:
+  kafka-data:
+  redis-data:
+
+services:
+
+  # ─── Infrastructure ───────────────────────────────────────────────────────
+  postgres:
+    image: timescale/timescaledb:latest-pg15
+    container_name: fleet-postgres
+    environment:
+      POSTGRES_USER: fleet
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: fleet_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - internal-net
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fleet -d fleet_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  redis:
+    image: redis:7-alpine
+    container_name: fleet-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    networks:
+      - internal-net
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.0
+    container_name: fleet-kafka
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk"
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+    networks:
+      - internal-net
+    ports:
+      - "9092:9092"
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-broker-api-versions --bootstrap-server localhost:9092"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  # ─── DB Migration (runs once) ─────────────────────────────────────────────
+  db-migrate:
+    build:
+      context: .
+      dockerfile: shared/Dockerfile.migrate
+    container_name: fleet-db-migrate
+    env_file: .env
+    networks:
+      - internal-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+
+  # ─── Kafka Topic Init (runs once) ─────────────────────────────────────────
+  kafka-init:
+    image: confluentinc/cp-kafka:7.6.0
+    container_name: fleet-kafka-init
+    networks:
+      - internal-net
+    depends_on:
+      kafka:
+        condition: service_healthy
+    entrypoint: ["/bin/bash", "-c"]
+    command: |
+      "
+      echo 'Creating Kafka topics...'
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic telemetry.raw --partitions 20 --replication-factor 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic service.records --partitions 5 --replication-factor 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic alerts.notifications --partitions 10 --replication-factor 1
+      echo 'Topics created successfully.'
+      kafka-topics --bootstrap-server kafka:9092 --list
+      "
+    restart: "no"
+
+  # ─── Application Services ─────────────────────────────────────────────────
+  parts-api-mock:
+    build:
+      context: .
+      dockerfile: services/parts_api_mock/Dockerfile
+    container_name: fleet-parts-api-mock
+    env_file: .env
+    ports:
+      - "8003:8000"
+    networks:
+      - internal-net
+    restart: always
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ingestion-api:
+    build:
+      context: .
+      dockerfile: services/ingestion_api/Dockerfile
+    container_name: fleet-ingestion-api
+    env_file: .env
+    environment:
+      KAFKA_CONSUMER_GROUP_ID: fleet-ingestion-api
+    ports:
+      - "8001:8000"
+    networks:
+      - public-net
+      - internal-net
+    depends_on:
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    restart: always
+
+  rule-engine:
+    build:
+      context: .
+      dockerfile: services/rule_engine/Dockerfile
+    container_name: fleet-rule-engine
+    env_file: .env
+    environment:
+      KAFKA_CONSUMER_GROUP_ID: fleet-rule-engine
+    volumes:
+      - ./config:/app/config
+    networks:
+      - internal-net
+    depends_on:
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    restart: always
+
+  alert-processor:
+    build:
+      context: .
+      dockerfile: services/alert_processor/Dockerfile
+    container_name: fleet-alert-processor
+    env_file: .env
+    environment:
+      KAFKA_CONSUMER_GROUP_ID: fleet-alert-processor
+    networks:
+      - internal-net
+    depends_on:
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      parts-api-mock:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+      db-migrate:
+        condition: service_completed_successfully
+    restart: always
+
+  webhook-receiver:
+    build:
+      context: .
+      dockerfile: services/webhook_receiver/Dockerfile
+    container_name: fleet-webhook-receiver
+    env_file: .env
+    ports:
+      - "8004:8000"
+    networks:
+      - public-net
+      - internal-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: always
+
+  dashboard-api:
+    build:
+      context: .
+      dockerfile: services/dashboard_api/Dockerfile
+    container_name: fleet-dashboard-api
+    env_file: .env
+    environment:
+      KAFKA_CONSUMER_GROUP_ID: fleet-dashboard-api
+    ports:
+      - "8002:8000"
+    networks:
+      - public-net
+      - internal-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+      db-migrate:
+        condition: service_completed_successfully
+    restart: always
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: services/scheduler/Dockerfile
+    container_name: fleet-scheduler
+    env_file: .env
+    volumes:
+      - ./data:/data
+    networks:
+      - internal-net
+    depends_on:
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: always
+
+  csv-ingestion:
+    build:
+      context: .
+      dockerfile: services/csv_ingestion/Dockerfile
+    container_name: fleet-csv-ingestion
+    env_file: .env
+    volumes:
+      - ./data:/data
+    networks:
+      - internal-net
+    depends_on:
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    profiles:
+      - manual
+
+  frontend:
+    build: ./frontend
+    container_name: fleet-frontend
+    ports:
+      - "3000:80"
+    networks:
+      - public-net
+    depends_on:
+      - dashboard-api
+    restart: always

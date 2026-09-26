@@ -1,0 +1,10 @@
+Task 2: Automotive Fleet Health & Predictive Maintenance Engine
+Design and implement a production-ready Automotive Fleet Health & Predictive Maintenance Engine that combines real-time vehicle telemetry with service history and spare-parts availability to identify vehicles at risk of failure and prioritize maintenance.
+Your solution must include:
+Fault-tolerant ingestion: Process simulated streaming vehicle telemetry—engine temperature, battery voltage, odometer readings, and diagnostic trouble codes—alongside batch CSV service records. Handle schema changes, duplicate events, out-of-order readings, and external API rate limits.
+Maintenance intelligence: Implement configurable rules to detect sustained overheating, repeated fault codes, and overdue servicing. Generate a maintenance recommendation with severity and supporting evidence. Use a mocked spare-parts API to check availability before recommending a service slot.
+Web dashboard: Display fleet health, high-risk vehicles, active alerts, and maintenance priorities. Support filtering by depot, vehicle, and severity, with live updates.
+Reliable processing: Prevent repeated readings from generating duplicate maintenance requests. Handle unavailable supplier APIs and unreliable service-status webhooks with retries and recovery.
+Deployment and architecture: Containerize the application and provide an architectural write-up covering vehicle/location data protection, observability, failure recovery, and a proposed approach to scaling to 10+ million daily telemetry events.
+Example acceptance scenario: A vehicle reports engine temperatures above a configurable threshold for three consecutive readings. The system creates one high-priority maintenance alert with the relevant readings. Replaying those events must not create another alert. If the parts API is unavailable, the alert remains visible with availability marked as pending.
+Submission: Working code, Docker setup, sample telemetry/CSV data, a dashboard, tests for the acceptance scenario, and a short architecture note.

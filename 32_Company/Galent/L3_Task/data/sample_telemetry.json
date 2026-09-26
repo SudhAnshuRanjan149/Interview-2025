@@ -1,0 +1,8 @@
+[
+  {"vehicle_id":"VH-001","timestamp":"2026-09-26T08:00:00Z","engine_temp_c":106.1,"battery_voltage":12.4,"odometer_km":50000,"dtc_codes":[],"depot_id":"D01"},
+  {"vehicle_id":"VH-001","timestamp":"2026-09-26T08:01:00Z","engine_temp_c":107.8,"battery_voltage":12.3,"odometer_km":50001,"dtc_codes":[],"depot_id":"D01"},
+  {"vehicle_id":"VH-001","timestamp":"2026-09-26T08:02:00Z","engine_temp_c":109.2,"battery_voltage":12.3,"odometer_km":50002,"dtc_codes":["P0300"],"depot_id":"D01"},
+  {"vehicle_id":"VH-002","timestamp":"2026-09-26T08:00:00Z","engine_temp_c":88.0,"battery_voltage":12.6,"odometer_km":32000,"dtc_codes":[],"depot_id":"D02"},
+  {"vehicle_id":"VH-003","timestamp":"2026-09-26T08:00:00Z","engine_temp_c":95.5,"battery_voltage":11.8,"odometer_km":71000,"dtc_codes":["P0171","P0171","P0171"],"depot_id":"D01"},
+  {"vehicle_id":"VH-004","timestamp":"2026-09-26T08:00:00Z","engine_temp_c":72.0,"battery_voltage":13.1,"odometer_km":48500,"dtc_codes":[],"depot_id":"D03"}
+]

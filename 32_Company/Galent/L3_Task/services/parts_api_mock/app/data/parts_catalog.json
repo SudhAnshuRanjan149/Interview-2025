@@ -1,0 +1,14 @@
+{
+  "P001": {"name": "Oil Filter Standard", "available": true, "lead_time_days": 1, "category": "Engine"},
+  "P002": {"name": "Air Filter Premium", "available": true, "lead_time_days": 2, "category": "Engine"},
+  "P003": {"name": "Brake Pads Front", "available": true, "lead_time_days": 3, "category": "Brakes"},
+  "P004": {"name": "Brake Discs Front", "available": false, "lead_time_days": 7, "category": "Brakes"},
+  "P005": {"name": "Tyre 205/65R16", "available": true, "lead_time_days": 1, "category": "Tyres"},
+  "P006": {"name": "Battery 12V 90Ah", "available": true, "lead_time_days": 2, "category": "Electrical"},
+  "P007": {"name": "Coolant Thermostat", "available": true, "lead_time_days": 4, "category": "Cooling"},
+  "P008": {"name": "Water Pump", "available": false, "lead_time_days": 10, "category": "Cooling"},
+  "OIL_FILTER": {"name": "Oil Filter Standard", "available": true, "lead_time_days": 1, "category": "Engine"},
+  "AIR_FILTER": {"name": "Air Filter Premium", "available": true, "lead_time_days": 2, "category": "Engine"},
+  "BRAKE_PADS": {"name": "Brake Pads Front", "available": true, "lead_time_days": 3, "category": "Brakes"},
+  "BRAKE_DISCS": {"name": "Brake Discs Front", "available": false, "lead_time_days": 7, "category": "Brakes"}
+}

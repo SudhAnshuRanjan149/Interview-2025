@@ -1,0 +1,37 @@
+from enum import Enum
+
+
+class Severity(str, Enum):
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+    CRITICAL = "CRITICAL"
+
+
+class AlertStatus(str, Enum):
+    OPEN = "OPEN"
+    ACKNOWLEDGED = "ACKNOWLEDGED"
+    RESOLVED = "RESOLVED"
+    SUPPRESSED = "SUPPRESSED"
+
+
+class PartsStatus(str, Enum):
+    PENDING = "PENDING"
+    AVAILABLE = "AVAILABLE"
+    UNAVAILABLE = "UNAVAILABLE"
+    NOT_REQUIRED = "NOT_REQUIRED"
+
+
+class ServiceType(str, Enum):
+    OIL_CHANGE = "OIL_CHANGE"
+    BRAKE_SERVICE = "BRAKE_SERVICE"
+    FULL_SERVICE = "FULL_SERVICE"
+    TYRE_ROTATION = "TYRE_ROTATION"
+    BATTERY_CHECK = "BATTERY_CHECK"
+    OTHER = "OTHER"
+
+
+class WebhookEventType(str, Enum):
+    SERVICE_SCHEDULED = "SERVICE_SCHEDULED"
+    SERVICE_COMPLETED = "SERVICE_COMPLETED"
+    SERVICE_CANCELLED = "SERVICE_CANCELLED"

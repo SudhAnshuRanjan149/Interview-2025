@@ -1,0 +1,10 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir alembic asyncpg sqlalchemy[asyncio]
+
+COPY shared/db/migrations /app/migrations
+COPY shared/db/migrations/alembic.ini /app/alembic.ini
+
+CMD ["alembic", "-c", "/app/alembic.ini", "upgrade", "head"]

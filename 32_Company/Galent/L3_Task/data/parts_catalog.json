@@ -1,0 +1,29 @@
+{
+  "catalog": [
+    {"code": "P001", "name": "Engine Air Filter",        "category": "engine",     "unit_cost": 45.00,  "lead_time_days": 1},
+    {"code": "P002", "name": "Oil Filter",               "category": "engine",     "unit_cost": 18.50,  "lead_time_days": 1},
+    {"code": "P003", "name": "Synthetic Engine Oil 5W-30","category": "engine",    "unit_cost": 72.00,  "lead_time_days": 1},
+    {"code": "P004", "name": "Spark Plug Set (x4)",      "category": "ignition",   "unit_cost": 64.00,  "lead_time_days": 2},
+    {"code": "P005", "name": "Timing Belt Kit",          "category": "engine",     "unit_cost": 195.00, "lead_time_days": 3},
+    {"code": "P006", "name": "Coolant / Antifreeze 5L",  "category": "cooling",    "unit_cost": 38.00,  "lead_time_days": 1},
+    {"code": "P007", "name": "Thermostat Assembly",      "category": "cooling",    "unit_cost": 52.00,  "lead_time_days": 4},
+    {"code": "P008", "name": "Water Pump",               "category": "cooling",    "unit_cost": 145.00, "lead_time_days": 5},
+    {"code": "P009", "name": "Radiator (OEM)",           "category": "cooling",    "unit_cost": 320.00, "lead_time_days": 7},
+    {"code": "P010", "name": "Brake Pads (Front Axle)",  "category": "brakes",     "unit_cost": 88.00,  "lead_time_days": 2},
+    {"code": "P011", "name": "Brake Discs (Front Axle)", "category": "brakes",     "unit_cost": 175.00, "lead_time_days": 3},
+    {"code": "P012", "name": "Brake Fluid DOT4 1L",      "category": "brakes",     "unit_cost": 22.00,  "lead_time_days": 1},
+    {"code": "P013", "name": "12V Battery 72Ah",         "category": "electrical", "unit_cost": 130.00, "lead_time_days": 2},
+    {"code": "P014", "name": "Alternator",               "category": "electrical", "unit_cost": 295.00, "lead_time_days": 5},
+    {"code": "P015", "name": "Starter Motor",            "category": "electrical", "unit_cost": 215.00, "lead_time_days": 4},
+    {"code": "P016", "name": "EGR Valve",                "category": "emissions",  "unit_cost": 165.00, "lead_time_days": 6},
+    {"code": "P017", "name": "DPF (Diesel Particulate Filter)", "category": "emissions", "unit_cost": 480.00, "lead_time_days": 10},
+    {"code": "P018", "name": "Lambda / O2 Sensor",       "category": "emissions",  "unit_cost": 95.00,  "lead_time_days": 3},
+    {"code": "P019", "name": "Transmission Fluid ATF",   "category": "drivetrain", "unit_cost": 55.00,  "lead_time_days": 2},
+    {"code": "P020", "name": "Drive Belt (Serpentine)",  "category": "engine",     "unit_cost": 42.00,  "lead_time_days": 2}
+  ],
+  "rule_parts_mapping": {
+    "overheating":      ["P006", "P007", "P008", "P009"],
+    "fault_code":       ["P016", "P017", "P018", "P004"],
+    "overdue_service":  ["P001", "P002", "P003", "P010", "P012"]
+  }
+}

@@ -1,0 +1,27 @@
+rules:
+  overheating:
+    enabled: true
+    metric: engine_temp_c
+    threshold: 105.0          # degrees Celsius
+    consecutive: 3            # N consecutive readings above threshold to trigger
+    severity: HIGH
+    recommendation: "Immediate cooling system inspection required."
+
+  repeated_fault_code:
+    enabled: true
+    window_minutes: 60        # look-back window in minutes
+    min_occurrences: 3        # same DTC must appear this many times
+    severity: MEDIUM
+    recommendation: "Schedule diagnostic scan; check fault code history."
+
+  overdue_service:
+    enabled: true
+    odometer_interval_km: 10000   # km since last service
+    time_interval_days: 180       # days since last service
+    severity: MEDIUM
+    recommendation: "Vehicle due for scheduled service. Book at nearest depot."
+
+global:
+  alert_fingerprint_ttl_days: 30
+  telemetry_dedup_ttl_hours: 24
+  max_parts_retry_attempts: 5
