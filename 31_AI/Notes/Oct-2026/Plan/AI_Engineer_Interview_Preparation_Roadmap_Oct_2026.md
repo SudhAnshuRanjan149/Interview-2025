@@ -791,103 +791,62 @@ If time is short, do not attempt to master every advanced topic at once. Follow 
 This roadmap corresponds to the following structured repository format for study notes and code exercises:
 
 - [ ] **Module_01_Python_and_Software_Engineering/**
-  - [ ] `01_Core_Python.md`
-  - [ ] `02_Async_and_Performance.md`
-  - [ ] `03_Software_Engineering_Practices.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_02_Math_ML_and_Deep_Learning/**
-  - [ ] `01_Mathematics.md`
-  - [ ] `02_Machine_Learning.md`
-  - [ ] `03_Deep_Learning_and_PyTorch.md`
-  - [ ] `04_Advanced_Extensions.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_03_NLP_Tokenization_Embeddings_Transformers/**
-  - [ ] `01_History_of_AI_Before_Transformers.md`
-  - [ ] `02_Transformer_Architecture.md`
-  - [ ] `03_Practice_and_Advanced_Topics.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_04_LLM_Foundations_Prompting_APIs/**
-  - [ ] `01_LLM_Concepts.md`
-  - [ ] `02_Decoding_and_Prompting.md`
-  - [ ] `03_API_Integration.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_05_Databases_Networking_Linux_Infrastructure/**
-  - [ ] `01_SQL_and_Data_Stores.md`
-  - [ ] `02_Networking_and_Linux.md`
-  - [ ] `03_Containers_and_Cloud.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_06_Document_Processing_and_Data_Pipelines/**
-  - [ ] `01_Ingestion.md`
-  - [ ] `02_Data_Lifecycle.md`
-  - [ ] `03_Enterprise_Considerations.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_07_RAG_and_Information_Retrieval/**
-  - [ ] `01_Chunking.md`
-  - [ ] `02_Embeddings_and_Vector_Search.md`
-  - [ ] `03_Retrieval_Strategies_Token_Optimization.md`
-  - [ ] `04_Generation_and_Grounding.md`
-  - [ ] `05_RAG_Debugging_and_Security.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_08_LLM_and_RAG_Evaluation/**
-  - [ ] `01_Dataset_and_Methodology.md`
-  - [ ] `02_Retrieval_Metrics.md`
-  - [ ] `03_Generation_Metrics.md`
-  - [ ] `04_Judge_Quality_and_Experimentation.md`
-  - [ ] `05_Tools.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_09_Fine_Tuning_and_Alignment/**
-  - [ ] `01_Data_and_Training.md`
-  - [ ] `02_Parameter_Efficient_Fine_Tuning.md`
-  - [ ] `03_Preference_Optimization.md`
-  - [ ] `04_Tooling_and_Model_Selection.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_10_Inference_Quantization_Serving/**
-  - [ ] `01_Model_Formats_and_Quantization.md`
-  - [ ] `02_Serving_and_Inference_Internals.md`
-  - [ ] `03_Performance_and_Capacity_Planning.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_11_Backend_Services_and_Production_APIs/**
-  - [ ] `01_Backend_Services_and_Production_APIs.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_12_Single_Agent_Design_and_Tool_Execution/**
-  - [ ] `01_Single_Agent_Design_and_Tool_Execution.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_13_Agent_Orchestration_and_Durable_Execution/**
-  - [ ] `01_State_and_Workflow_Graphs.md`
-  - [ ] `02_Persistence_and_Recovery.md`
-  - [ ] `03_Reliability.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_14_Planning_Memory_and_Multi_Agent_Systems/**
-  - [ ] `01_Planning_and_Reasoning_Patterns.md`
-  - [ ] `02_Memory.md`
-  - [ ] `03_Multi_Agent_Systems.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_15_Model_Context_Protocol_and_Interoperability/**
-  - [ ] `01_Model_Context_Protocol_and_Interoperability.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_16_Agent_Evaluation_Observability_and_Operations/**
-  - [ ] `01_Evaluation.md`
-  - [ ] `02_Observability.md`
-  - [ ] `03_Reliability_Engineering.md`
-  - [ ] `04_Useful_Tooling.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_17_AI_Security_Privacy_and_Governance/**
-  - [ ] `01_Threat_Modeling.md`
-  - [ ] `02_Application_and_Tool_Security.md`
-  - [ ] `03_Data_and_Compliance.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_18_AI_System_Design/**
-  - [ ] `01_System_Design_Fundamentals.md`
-  - [ ] `02_AI_Specific_Architectures.md`
-  - [ ] `03_Trade_offs_to_Defend.md`
-  - [ ] `04_Capacity_Planning_Exercises.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_19_Forward_Deployed_Engineer/**
-  - [ ] `01_Customer_and_Product_Discovery.md`
-  - [ ] `02_Enterprise_Integration.md`
-  - [ ] `03_Delivery_and_Operations.md`
-  - [ ] `04_FDE_Interview_Practice.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
 - [ ] **Module_20_Multimodal_AI_and_Specialist_Topics/**
-  - [ ] `01_Multimodal_AI_and_Specialist_Topics.md`
+  - [ ] `notes.md`
   - [ ] `code.ipynb`
