@@ -1,4 +1,4 @@
-Good morning, and thank you for the opportunity.
+Good Afternoon, and thank you for the opportunity.
 
 I’m Priya Upadhyay. I completed my Master’s in Electronics and Communication Engineering in 2021 and started my career with Tata Consultancy Services, where I spent around four and a half years working in the automotive ADAS domain.
 
