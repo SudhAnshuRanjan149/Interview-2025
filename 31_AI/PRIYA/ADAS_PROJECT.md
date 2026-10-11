@@ -15,7 +15,8 @@ One of the important architectural considerations was balancing local execution 
 This project gave me practical experience with multi-agent orchestration, RAG, tool integration, local LLM deployment, and designing GenAI applications for resource-constrained edge environments.
 
 
-##MY ROLE
+**MY ROLE**
+
 My role in this project was primarily as an AI Engineer, focusing on developing the multi-agent architecture and integrating the LLM, retrieval, and tool-calling components.
 
 I worked with Python and LangGraph to implement the agent orchestration, coordinating the Local, Cloud, and CAN agents based on the task requirements.
@@ -26,7 +27,8 @@ Another important part of my work was integrating local LLM execution on the NVI
 
 Overall, my contribution focused on agent orchestration, RAG integration, tool integration, and combining local and cloud AI capabilities into a unified ADAS assistant.
 
-##CHALLENGE FACED
+**CHALLENGE FACED**
+
 One of the key challenges I faced in the ADAS multi-agent project was integrating local and cloud-based AI capabilities into a single workflow.
 
 The Local agent ran an LLM on the NVIDIA Jetson Orin, while the Cloud agent depended on external APIs for information such as weather, maps, and web search. The challenge was that cloud-dependent operations required network connectivity, whereas the local agent needed to remain useful in offline scenarios.
