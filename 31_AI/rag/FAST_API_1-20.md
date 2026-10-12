@@ -78,7 +78,20 @@ For I/O-bound workloads, such as asynchronous HTTP calls to an LLM provider, asy
 Example:
 
 ```
-import httpxfrom fastapi import FastAPIapp = FastAPI()@app.get("/model-info")async def model_info():    async with httpx.AsyncClient() as client:        response = await client.get(            "https://example.com/model-info",            timeout=10.0        )        response.raise_for_status()        return response.json()
+import httpx
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/model-info")
+async def model_info():
+    async with httpx.AsyncClient() as client:
+        response = await client.get(
+            "https://example.com/model-info",
+            timeout=10.0
+        )
+        response.raise_for_status()
+        return response.json()
 ```
 
 Important distinction:
