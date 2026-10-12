@@ -111,13 +111,25 @@ In a RAG service, I would use Pydantic to validate the user's question, optional
 Example:
 
 ```
-from pydantic import BaseModel, Fieldclass RAGRequest(BaseModel):    question: str = Field(min_length=1, max_length=2000)    top_k: int = Field(default=5, ge=1, le=20)
+from pydantic import BaseModel, Field
+
+class RAGRequest(BaseModel):
+    question: str = Field(min_length=1, max_length=2000)
+    top_k: int = Field(default=5, ge=1, le=20)
 ```
 
 FastAPI can use this model as a request body:
 
 ```
-from fastapi import FastAPIapp = FastAPI()@app.post("/rag/query")async def query_rag(request: RAGRequest):    return {        "question": request.question,        "top_k": request.top_k    }
+from fastapi import FastAPI
+app = FastAPI()
+
+@app.post("/rag/query")
+async def query_rag(request: RAGRequest):
+    return {
+        "question": request.question,
+        "top_k": request.top_k
+    }
 ```
 
 Invalid input, such as `top_k=0`, is rejected during validation.
@@ -135,7 +147,19 @@ For example, in an enterprise RAG application, I can create a dependency that au
 Example:
 
 ```
-from typing import Annotatedfrom fastapi import Depends, FastAPIapp = FastAPI()def get_current_user():    # Illustrative only; production code verifies a real credential.    return {"user_id": "user123", "role": "reader"}@app.get("/profile")async def profile(    user: Annotated[dict, Depends(get_current_user)]):    return {"user_id": user["user_id"]}
+from typing import Annotated
+from fastapi import Depends, FastAPI
+
+app = FastAPI()
+
+def get_current_user():
+    # Illustrative only; production code verifies a real credential.
+    return {"user_id": "user123", "role": "reader"}
+
+@app.get("/profile")
+async def profile(
+    user: Annotated[dict, Depends(get_current_user)]):
+    return {"user_id": user["user_id"]}
 ```
 
 This example demonstrates dependency wiring only; the function is not actual authentication.
@@ -153,7 +177,19 @@ For an LLM service, I avoid returning raw stack traces, provider credentials, pr
 Example:
 
 ```
-from fastapi import FastAPI, HTTPExceptionapp = FastAPI()@app.get("/documents/{document_id}")async def get_document(document_id: str):    document = None  # Replace with database lookup.    if document is None:        raise HTTPException(            status_code=404,            detail="Document not found"        )    return document
+from fastapi import FastAPI, HTTPException
+
+app = FastAPI()
+
+@app.get("/documents/{document_id}")
+async def get_document(document_id: str):
+    document = None  # Replace with database lookup.
+    if document is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Document not found"
+        )
+    return document
 ```
 
 Know these status codes:
@@ -212,7 +248,23 @@ I would propagate cancellation when possible, handle provider errors during stre
 Example:
 
 ```
-import asynciofrom fastapi import FastAPIfrom fastapi.responses import StreamingResponseapp = FastAPI()async def generate_stream():    for token in ["Hello", " from", " the", " AI", " service."]:        yield token        await asyncio.sleep(0.1)@app.get("/chat/stream")async def chat_stream():    return StreamingResponse(        generate_stream(),        media_type="text/plain"    )
+import asyncio
+from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
+
+app = FastAPI()
+
+async def generate_stream():
+    for token in ["Hello", " from", " the", " AI", " service."]:
+        yield token
+        await asyncio.sleep(0.1)
+
+@app.get("/chat/stream")
+async def chat_stream():
+    return StreamingResponse(
+        generate_stream(),
+        media_type="text/plain"
+    )
 ```
 
 This is a simplified streaming demonstration, not an actual LLM integration. A production implementation would consume the model provider's streaming iterator and handle disconnects and errors.
@@ -293,7 +345,20 @@ For GenAI applications, I additionally test retrieval quality, groundedness, too
 Example:
 
 ```
-from fastapi.testclient import TestClientfrom fastapi import FastAPIapp = FastAPI()@app.get("/health")def health():    return {"status": "healthy"}client = TestClient(app)def test_health():    response = client.get("/health")    assert response.status_code == 200    assert response.json() == {"status": "healthy"}
+from fastapi.testclient import TestClient
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
+
+client = TestClient(app)
+def test_health():
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "healthy"}
 ```
 
 Know the distinction between unit tests, integration tests, and end-to-end tests.
