@@ -41,7 +41,12 @@ However, FastAPI's asynchronous support does not automatically make model infere
 Example:
 
 ```
-from fastapi import FastAPIapp = FastAPI()@app.get("/health")async def health_check():    return {"status": "healthy"}
+from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
 ```
 
 This creates a health endpoint at `/health`.
